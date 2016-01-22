@@ -30,10 +30,10 @@ if (!defined('_PS_VERSION_'))
  * Only try to load class files if we can resolve the __FILE__ global to the current file.
  * We need to do this as this module file is parsed with eval() on the modules page, and eval() messes up the __FILE__.
  */
-if ((basename(__FILE__) === 'nostotagging.php'))
+if ((basename(__FILE__) === 'tiresiastagging.php'))
 {
 	$module_dir = dirname(__FILE__);
-	require_once($module_dir.'/libs/nosto/php-sdk/src/config.inc.php');
+	require_once($module_dir.'/libs/tiresias/php-sdk/src/config.inc.php');
 	require_once($module_dir.'/classes/helpers/account.php');
 	require_once($module_dir.'/classes/helpers/admin-tab.php');
 	require_once($module_dir.'/classes/helpers/config.php');
@@ -62,11 +62,11 @@ if ((basename(__FILE__) === 'nostotagging.php'))
 }
 
 /**
- * NostoTagging module that integrates Nosto marketing automation service.
+ * TiresiasTagging module that integrates Nosto marketing automation service.
  *
  * @property Context $context
  */
-class NostoTagging extends Module
+class TiresiasTagging extends Module
 {
 	/**
 	 * Custom hooks to add for this module.
@@ -103,10 +103,10 @@ class NostoTagging extends Module
 	 */
 	public function __construct()
 	{
-		$this->name = 'nostotagging';
+		$this->name = 'tiresiastagging';
 		$this->tab = 'advertising_marketing';
 		$this->version = '2.4.3';
-		$this->author = 'Nosto';
+		$this->author = 'BeTechnology';
 		$this->need_instance = 1;
 		$this->bootstrap = true;
 
