@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,8 +18,8 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -29,7 +29,7 @@
  * causes the upgrade scripts to never run.
  * The upgrade scripts are ran 'silently' and does not output anything to the user.
  */
-class NostoTaggingHelperUpdater
+class TiresiasTaggingHelperUpdater
 {
 	/**
 	 * @var string the updater only runs upgrade scripts >= to this version.
@@ -55,7 +55,7 @@ class NostoTaggingHelperUpdater
 		if (version_compare(_PS_VERSION_, '1.5.4.0', '<'))
 		{
 			// If the module is already updated to the latest version, don't continue.
-			$installed_version = (string)Nosto::helper('nosto_tagging/config')->getInstalledVersion();
+			$installed_version = (string)Tiresias::helper('tiresias_tagging/config')->getInstalledVersion();
 			if (version_compare($installed_version, $module->version, '='))
 				return;
 
@@ -69,7 +69,7 @@ class NostoTaggingHelperUpdater
 
 			// Always update the installed version so that we can check it during the next requests in order
 			// to avoid reading the file system for upgrade script all the time.
-			Nosto::helper('nosto_tagging/config')->saveInstalledVersion($module->version);
+			Tiresias::helper('tiresias_tagging/config')->saveInstalledVersion($module->version);
 		}
 
 		// Prestashop >= 1.5.4.0 handles the auto-update mechanism.
@@ -86,7 +86,7 @@ class NostoTaggingHelperUpdater
 	{
 		$scripts = array();
 		$path = _PS_MODULE_DIR_.$module->name.'/upgrade/';
-		$installed_version = (string)Nosto::helper('nosto_tagging/config')->getInstalledVersion();
+		$installed_version = (string)Tiresias::helper('tiresias_tagging/config')->getInstalledVersion();
 		$new_version = $module->version;
 
 		if (file_exists($path) && ($files = scandir($path)))
@@ -109,7 +109,7 @@ class NostoTaggingHelperUpdater
 					}
 				}
 
-		usort($scripts, array('NostoTaggingUpdater', 'sortUpgradeScriptsByVersion'));
+		usort($scripts, array('TiresiasTaggingUpdater', 'sortUpgradeScriptsByVersion'));
 		return $scripts;
 	}
 

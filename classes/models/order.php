@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,15 +18,15 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
  * Model for tagging orders.
  */
-class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface, NostoValidatableInterface
+class TiresiasTaggingOrder extends TiresiasTaggingModel implements TiresiasOrderInterface, TiresiasValidatableInterface
 {
 	/**
 	 * @var bool if we should include special line items such as discounts and shipping costs.
@@ -39,7 +39,7 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 	protected $order_number;
 
 	/**
-	 * @var NostoTaggingOrderBuyer buyer info.
+	 * @var TiresiasTaggingOrderBuyer buyer info.
 	 */
 	protected $buyer_info = array();
 
@@ -49,7 +49,7 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 	protected $created_date;
 
 	/**
-	 * @var NostoTaggingOrderPurchasedItem[] purchased items in the order.
+	 * @var TiresiasTaggingOrderPurchasedItem[] purchased items in the order.
 	 */
 	protected $purchased_items = array();
 
@@ -59,7 +59,7 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 	protected $payment_provider;
 
 	/**
-	 * @var NostoTaggingOrderStatus the order status.
+	 * @var TiresiasTaggingOrderStatus the order status.
 	 */
 	protected $order_status;
 
@@ -143,9 +143,9 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 		$customer = new Customer((int)$order->id_customer);
 		// The order reference was introduced in prestashop 1.5 where orders can be split into multiple ones.
 		$this->order_number = isset($order->reference) ? (string)$order->reference : $order->id;
-		$this->buyer_info = new NostoTaggingOrderBuyer();
+		$this->buyer_info = new TiresiasTaggingOrderBuyer();
 		$this->buyer_info->loadData($customer);
-		$this->created_date = Nosto::helper('date')->format($order->date_add);
+		$this->created_date = Tiresias::helper('date')->format($order->date_add);
 		$this->purchased_items = $this->findPurchasedItems($context, $order);
 
 		$payment_module = Module::getInstanceByName($order->module);
@@ -154,7 +154,7 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 		else
 			$this->payment_provider = $order->module.' [unknown]';
 
-		$this->order_status = new NostoTaggingOrderStatus();
+		$this->order_status = new TiresiasTaggingOrderStatus();
 		$this->order_status->loadData($order);
 	}
 
@@ -163,7 +163,7 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 	 *
 	 * @param Context $context the context.
 	 * @param Order $order the order object.
-	 * @return NostoTaggingOrderPurchasedItem[] the purchased items.
+	 * @return TiresiasTaggingOrderPurchasedItem[] the purchased items.
 	 */
 	protected function findPurchasedItems(Context $context, Order $order)
 	{
@@ -260,11 +260,11 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 						$product_name .= ' ('.implode(', ', $attribute_combination_names).')';
 				}
 
-				$purchased_item = new NostoTaggingOrderPurchasedItem();
+				$purchased_item = new TiresiasTaggingOrderPurchasedItem();
 				$purchased_item->setProductId((int)$p->id);
 				$purchased_item->setQuantity((int)$item['product_quantity']);
 				$purchased_item->setName((string)$product_name);
-				$purchased_item->setUnitPrice(Nosto::helper('price')->format($item['product_price_wt']));
+				$purchased_item->setUnitPrice(Tiresias::helper('price')->format($item['product_price_wt']));
 				$purchased_item->setCurrencyCode((string)$currency->iso_code);
 				$purchased_items[] = $purchased_item;
 			}
@@ -280,12 +280,12 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 				$total_discounts_tax_incl = Tools::ps_round($total_discounts_tax_incl - $total_gift_tax_incl, 2);
 				if ($total_discounts_tax_incl > 0)
 				{
-					$purchased_item = new NostoTaggingOrderPurchasedItem();
+					$purchased_item = new TiresiasTaggingOrderPurchasedItem();
 					$purchased_item->setProductId(-1);
 					$purchased_item->setQuantity(1);
 					$purchased_item->setName('Discount');
 					// Note the negative value.
-					$purchased_item->setUnitPrice(Nosto::helper('price')->format(-$total_discounts_tax_incl));
+					$purchased_item->setUnitPrice(Tiresias::helper('price')->format(-$total_discounts_tax_incl));
 					$purchased_item->setCurrencyCode((string)$currency->iso_code);
 					$purchased_items[] = $purchased_item;
 				}
@@ -303,22 +303,22 @@ class NostoTaggingOrder extends NostoTaggingModel implements NostoOrderInterface
 
 			if (!$free_shipping && $total_shipping_tax_incl > 0)
 			{
-				$purchased_item = new NostoTaggingOrderPurchasedItem();
+				$purchased_item = new TiresiasTaggingOrderPurchasedItem();
 				$purchased_item->setProductId(-1);
 				$purchased_item->setQuantity(1);
 				$purchased_item->setName('Shipping');
-				$purchased_item->setUnitPrice(Nosto::helper('price')->format($total_shipping_tax_incl));
+				$purchased_item->setUnitPrice(Tiresias::helper('price')->format($total_shipping_tax_incl));
 				$purchased_item->setCurrencyCode((string)$currency->iso_code);
 				$purchased_items[] = $purchased_item;
 			}
 
 			if ($total_wrapping_tax_incl > 0)
 			{
-				$purchased_item = new NostoTaggingOrderPurchasedItem();
+				$purchased_item = new TiresiasTaggingOrderPurchasedItem();
 				$purchased_item->setProductId(-1);
 				$purchased_item->setQuantity(1);
 				$purchased_item->setName('Gift Wrapping');
-				$purchased_item->setUnitPrice(Nosto::helper('price')->format($total_wrapping_tax_incl));
+				$purchased_item->setUnitPrice(Tiresias::helper('price')->format($total_wrapping_tax_incl));
 				$purchased_item->setCurrencyCode((string)$currency->iso_code);
 				$purchased_items[] = $purchased_item;
 			}

@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,15 +18,15 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
  * Meta data class for account iframe related information needed when showing the admin iframe on module settings page.
  */
-class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterface
+class TiresiasTaggingMetaAccountIframe implements TiresiasAccountMetaDataIframeInterface
 {
 	/**
 	 * @var string the admin user first name.
@@ -59,7 +59,7 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 	protected $unique_id;
 
 	/**
-	 * @var string the version number of the Nosto module/extension running on the e-commerce installation.
+	 * @var string the version number of the Tiresias module/extension running on the e-commerce installation.
 	 */
 	protected $version_module;
 
@@ -89,7 +89,7 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 	protected $preview_url_front;
 
 	/**
-	 * @var string the name of the shop context where nosto is installed or is about to be installed.
+	 * @var string the name of the shop context where tiresias is installed or is about to be installed.
 	 */
 	protected $shop_name;
 
@@ -105,8 +105,8 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 		if (!Validate::isLoadedObject($shop_language))
 			return;
 
-		/** @var NostoTaggingHelperUrl $url_helper */
-		$url_helper = Nosto::helper('nosto_tagging/url');
+		/** @var TiresiasTaggingHelperUrl $url_helper */
+		$url_helper = Tiresias::helper('tiresias_tagging/url');
 
 		$this->first_name = $context->employee->firstname;
 		$this->last_name = $context->employee->lastname;
@@ -123,7 +123,7 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 
 	/**
 	 * The name of the platform the iframe is used on.
-	 * A list of valid platform names is issued by Nosto.
+	 * A list of valid platform names is issued by Tiresias.
 	 *
 	 * @return string the platform name.
 	 */
@@ -260,7 +260,7 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 	}
 
 	/**
-	 * Sets the version number of the Nosto module/extension running on the
+	 * Sets the version number of the Tiresias module/extension running on the
 	 * e-commerce installation.
 	 *
 	 * @param string $version the version number.
@@ -271,7 +271,7 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 	}
 
 	/**
-	 * The version number of the Nosto module/extension running on the
+	 * The version number of the Tiresias module/extension running on the
 	 * e-commerce installation.
 	 *
 	 * @return string the module version.
@@ -283,8 +283,8 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 
 	/**
 	 * An absolute URL for any product page in the shop the account is linked
-	 * to, with the nostodebug GET parameter enabled.
-	 * e.g. http://myshop.com/products/product123?nostodebug=true
+	 * to, with the tiresiasdebug GET parameter enabled.
+	 * e.g. http://myshop.com/products/product123?tiresiasdebug=true
 	 * This is used in the config iframe to allow the user to quickly preview
 	 * the recommendations on the given page.
 	 *
@@ -297,8 +297,8 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 
 	/**
 	 * An absolute URL for any category page in the shop the account is linked
-	 * to, with the nostodebug GET parameter enabled.
-	 * e.g. http://myshop.com/products/category123?nostodebug=true
+	 * to, with the tiresiasdebug GET parameter enabled.
+	 * e.g. http://myshop.com/products/category123?tiresiasdebug=true
 	 * This is used in the config iframe to allow the user to quickly preview
 	 * the recommendations on the given page.
 	 *
@@ -311,8 +311,8 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 
 	/**
 	 * An absolute URL for the search page in the shop the account is linked
-	 * to, with the nostodebug GET parameter enabled.
-	 * e.g. http://myshop.com/search?query=red?nostodebug=true
+	 * to, with the tiresiasdebug GET parameter enabled.
+	 * e.g. http://myshop.com/search?query=red?tiresiasdebug=true
 	 * This is used in the config iframe to allow the user to quickly preview
 	 * the recommendations on the given page.
 	 *
@@ -325,8 +325,8 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 
 	/**
 	 * An absolute URL for the shopping cart page in the shop the account is
-	 * linked to, with the nostodebug GET parameter enabled.
-	 * e.g. http://myshop.com/cart?nostodebug=true
+	 * linked to, with the tiresiasdebug GET parameter enabled.
+	 * e.g. http://myshop.com/cart?tiresiasdebug=true
 	 * This is used in the config iframe to allow the user to quickly preview
 	 * the recommendations on the given page.
 	 *
@@ -339,8 +339,8 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 
 	/**
 	 * An absolute URL for the front page in the shop the account is linked to,
-	 * with the nostodebug GET parameter enabled.
-	 * e.g. http://myshop.com?nostodebug=true
+	 * with the tiresiasdebug GET parameter enabled.
+	 * e.g. http://myshop.com?tiresiasdebug=true
 	 * This is used in the config iframe to allow the user to quickly preview
 	 * the recommendations on the given page.
 	 *
@@ -352,7 +352,7 @@ class NostoTaggingMetaAccountIframe implements NostoAccountMetaDataIframeInterfa
 	}
 
 	/**
-	 * Returns the name of the shop context where nosto is installed or about to be installed.
+	 * Returns the name of the shop context where tiresias is installed or about to be installed.
 	 *
 	 * @return string the name.
 	 */

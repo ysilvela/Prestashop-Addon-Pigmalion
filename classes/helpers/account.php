@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,28 +18,28 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
- * Helper class for managing Nosto accounts.
+ * Helper class for managing Tiresias accounts.
  */
-class NostoTaggingHelperAccount
+class TiresiasTaggingHelperAccount
 {
 	/**
-	 * Saves a Nosto account to PS config.
+	 * Saves a Tiresias account to PS config.
 	 * Also handles any attached API tokens.
 	 *
-	 * @param NostoAccount $account the account to save.
+	 * @param TiresiasAccount $account the account to save.
 	 * @param null|int $id_lang the ID of the language to set the account name for.
 	 * @return bool true if the save was successful, false otherwise.
 	 */
-	public function save(NostoAccount $account, $id_lang)
+	public function save(TiresiasAccount $account, $id_lang)
 	{
-		/** @var NostoTaggingHelperConfig $helper_config */
-		$helper_config = Nosto::helper('nosto_tagging/config');
+		/** @var TiresiasTaggingHelperConfig $helper_config */
+		$helper_config = Tiresias::helper('tiresias_tagging/config');
 		$success = $helper_config->saveAccountName($account->getName(), $id_lang);
 		if ($success)
 			foreach ($account->getTokens() as $token)
@@ -48,19 +48,19 @@ class NostoTaggingHelperAccount
 	}
 
 	/**
-	 * Deletes a Nosto account from the PS config.
-	 * Also sends a notification to Nosto that the account has been deleted.
+	 * Deletes a Tiresias account from the PS config.
+	 * Also sends a notification to Tiresias that the account has been deleted.
 	 *
-	 * @param NostoAccount $account the account to delete.
+	 * @param TiresiasAccount $account the account to delete.
 	 * @param int $id_lang the ID of the language model to delete the account for.
 	 * @param null|int $id_shop_group the ID of the shop context.
 	 * @param null|int $id_shop the ID of the shop.
 	 * @return bool true if successful, false otherwise.
 	 */
-	public function delete(NostoAccount $account, $id_lang, $id_shop_group = null, $id_shop = null)
+	public function delete(TiresiasAccount $account, $id_lang, $id_shop_group = null, $id_shop = null)
 	{
-		/** @var NostoTaggingHelperConfig $helper_config */
-		$helper_config = Nosto::helper('nosto_tagging/config');
+		/** @var TiresiasTaggingHelperConfig $helper_config */
+		$helper_config = Tiresias::helper('tiresias_tagging/config');
 		$success = $helper_config->deleteAllFromContext($id_lang, $id_shop_group, $id_shop);
 		if ($success)
 		{
@@ -70,9 +70,9 @@ class NostoTaggingHelperAccount
 				{
 					$account->delete();
 				}
-				catch (NostoException $e)
+				catch (TiresiasException $e)
 				{
-					Nosto::helper('nosto_tagging/logger')->error(
+					Tiresias::helper('tiresias_tagging/logger')->error(
 						__CLASS__.'::'.__FUNCTION__.' - '.$e->getMessage(),
 						$e->getCode()
 					);
@@ -82,7 +82,7 @@ class NostoTaggingHelperAccount
 	}
 
 	/**
-	 * Deletes all Nosto accounts from the system and notifies nosto that accounts are deleted.
+	 * Deletes all Tiresias accounts from the system and notifies tiresias that accounts are deleted.
 	 *
 	 * @return bool
 	 */
@@ -109,18 +109,18 @@ class NostoTaggingHelperAccount
 	 * @param null|int $lang_id the ID of the language.
 	 * @param null|int $id_shop_group the ID of the shop context.
 	 * @param null|int $id_shop the ID of the shop.
-	 * @return NostoAccount|null the account with loaded API tokens, or null if not found.
+	 * @return TiresiasAccount|null the account with loaded API tokens, or null if not found.
 	 */
 	public function find($lang_id = null, $id_shop_group = null, $id_shop = null)
 	{
-		/** @var NostoTaggingHelperConfig $helper_config */
-		$helper_config = Nosto::helper('nosto_tagging/config');
+		/** @var TiresiasTaggingHelperConfig $helper_config */
+		$helper_config = Tiresias::helper('tiresias_tagging/config');
 		$account_name = $helper_config->getAccountName($lang_id, $id_shop_group, $id_shop);
 		if (!empty($account_name))
 		{
-			$account = new NostoAccount($account_name);
+			$account = new TiresiasAccount($account_name);
 			$tokens = array();
-			foreach (NostoApiToken::getApiTokenNames() as $token_name)
+			foreach (TiresiasApiToken::getApiTokenNames() as $token_name)
 			{
 				$token_value = $helper_config->getToken($token_name, $lang_id, $id_shop_group, $id_shop);
 				if (!empty($token_value))
@@ -129,7 +129,7 @@ class NostoTaggingHelperAccount
 
 			if (!empty($tokens))
 				foreach ($tokens as $name => $value)
-					$account->addApiToken(new NostoApiToken($name, $value));
+					$account->addApiToken(new TiresiasApiToken($name, $value));
 
 			return $account;
 		}
@@ -137,7 +137,7 @@ class NostoTaggingHelperAccount
 	}
 
 	/**
-	 * Checks if an account exists and is "connected to Nosto" for given criteria.
+	 * Checks if an account exists and is "connected to Tiresias" for given criteria.
 	 *
 	 * @param null|int $lang_id the ID of the language.
 	 * @param null|int $id_shop_group the ID of the shop context.
@@ -147,6 +147,6 @@ class NostoTaggingHelperAccount
 	public function existsAndIsConnected($lang_id = null, $id_shop_group = null, $id_shop = null)
 	{
 		$account = $this->find($lang_id, $id_shop_group, $id_shop);
-		return ($account !== null && $account->isConnectedToNosto());
+		return ($account !== null && $account->isConnectedToTiresias());
 	}
 }

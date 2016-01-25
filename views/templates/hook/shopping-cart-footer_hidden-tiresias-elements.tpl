@@ -1,5 +1,5 @@
 {*
-* 2013-2015 Nosto Solutions Ltd
+* 2013-2015 BeTechnology Solutions Ltd
 *
 * NOTICE OF LICENSE
 *
@@ -9,7 +9,7 @@
 * http://opensource.org/licenses/afl-3.0.php
 * If you did not receive a copy of the license and are unable to
 * obtain it through the world-wide-web, please send an email
-* to contact@nosto.com so we can send you a copy immediately.
+* to contact@tiresias.com so we can send you a copy immediately.
 *
 * DISCLAIMER
 *
@@ -17,11 +17,11 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author    Nosto Solutions Ltd <contact@nosto.com>
-* @copyright 2013-2015 Nosto Solutions Ltd
+* @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+* @copyright 2013-2015 BeTechnology Solutions Ltd
 * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 
-<div class="hidden_nosto_element" data-nosto-id="nosto-page-cart1"></div>
-<div class="hidden_nosto_element" data-nosto-id="nosto-page-cart3"></div>
-<div class="hidden_nosto_element" data-nosto-id="nosto-page-cart2"></div>
+<div class="hidden_tiresias_element" data-tiresias-id="tiresias-page-cart1"></div>
+<div class="hidden_tiresias_element" data-tiresias-id="tiresias-page-cart3"></div>
+<div class="hidden_tiresias_element" data-tiresias-id="tiresias-page-cart2"></div>

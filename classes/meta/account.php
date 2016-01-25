@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,15 +18,15 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
  * Meta data class for account related information needed when creating new accounts.
  */
-class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
+class TiresiasTaggingMetaAccount implements TiresiasAccountMetaDataInterface
 {
 	/**
 	 * @var string the store name.
@@ -59,12 +59,12 @@ class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
 	protected $owner_language_code;
 
 	/**
-	 * @var NostoTaggingMetaAccountOwner the account owner meta model.
+	 * @var TiresiasTaggingMetaAccountOwner the account owner meta model.
 	 */
 	protected $owner;
 
 	/**
-	 * @var NostoTaggingMetaAccountBilling the billing meta model.
+	 * @var TiresiasTaggingMetaAccountBilling the billing meta model.
 	 */
 	protected $billing;
 
@@ -98,9 +98,9 @@ class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
 		$this->currency_code = $context->currency->iso_code;
 		$this->language_code = $context->language->iso_code;
 		$this->owner_language_code = $language->iso_code;
-		$this->owner = new NostoTaggingMetaAccountOwner();
+		$this->owner = new TiresiasTaggingMetaAccountOwner();
 		$this->owner->loadData($context);
-		$this->billing = new NostoTaggingMetaAccountBilling();
+		$this->billing = new TiresiasTaggingMetaAccountBilling();
 		$this->billing->loadData($context);
 	}
 
@@ -148,7 +148,7 @@ class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
 
 	/**
 	 * The name of the platform the account is used on.
-	 * A list of valid platform names is issued by Nosto.
+	 * A list of valid platform names is issued by Tiresias.
 	 *
 	 * @return string the platform names.
 	 */
@@ -244,7 +244,7 @@ class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
 	/**
 	 * Meta data model for the account owner who is creating the account.
 	 *
-	 * @return NostoTaggingMetaAccountOwner the meta data model.
+	 * @return TiresiasTaggingMetaAccountOwner the meta data model.
 	 */
 	public function getOwner()
 	{
@@ -254,7 +254,7 @@ class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
 	/**
 	 * Meta data model for the account billing details.
 	 *
-	 * @return NostoTaggingMetaAccountBilling the meta data model.
+	 * @return TiresiasTaggingMetaAccountBilling the meta data model.
 	 */
 	public function getBillingDetails()
 	{
@@ -263,7 +263,7 @@ class NostoTaggingMetaAccount implements NostoAccountMetaDataInterface
 
 	/**
 	 * The API token used to identify an account creation.
-	 * This token is platform specific and issued by Nosto.
+	 * This token is platform specific and issued by Tiresias.
 	 *
 	 * @return string the API token.
 	 */

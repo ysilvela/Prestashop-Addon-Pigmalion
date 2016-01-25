@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,18 +18,18 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
- * Helper class for managing the link between Prestashop shopping carts and Nosto users.
- * This link is used to create server side order confirmations through the Nosto REST API.
+ * Helper class for managing the link between Prestashop shopping carts and Tiresias users.
+ * This link is used to create server side order confirmations through the Tiresias REST API.
  */
-class NostoTaggingHelperCustomer
+class TiresiasTaggingHelperCustomer
 {
-	const TABLE_NAME = 'nostotagging_customer_link';
+	const TABLE_NAME = 'tiresiastagging_customer_link';
 	const COOKIE_NAME = '2c_cId';
 
 	/**
@@ -52,10 +52,10 @@ class NostoTaggingHelperCustomer
 		$table = self::getTableName();
 		$sql = 'CREATE TABLE IF NOT EXISTS `'.$table.'` (
 			`id_cart` INT(10) UNSIGNED NOT NULL,
-			`id_nosto_customer` VARCHAR(255) NOT NULL,
+			`id_tiresias_customer` VARCHAR(255) NOT NULL,
 			`date_add` DATETIME NOT NULL,
 			`date_upd` DATETIME NULL,
-			PRIMARY KEY (`id_cart`, `id_nosto_customer`)
+			PRIMARY KEY (`id_cart`, `id_tiresias_customer`)
 		) ENGINE '._MYSQL_ENGINE_;
 		return Db::getInstance()->execute($sql);
 	}
@@ -72,30 +72,30 @@ class NostoTaggingHelperCustomer
 	}
 
 	/**
-	 * Updates the current customers Nosto ID in the reference table.
+	 * Updates the current customers Tiresias ID in the reference table.
 	 *
 	 * @return bool true if updated correctly and false otherwise.
 	 */
-	public function updateNostoId()
+	public function updateTiresiasId()
 	{
 		$context = Context::getContext();
 		if (empty($context->cart->id))
 			return false;
 
-		$id_nosto_customer = $this->readCookieValue();
-		if (empty($id_nosto_customer))
+		$id_tiresias_customer = $this->readCookieValue();
+		if (empty($id_tiresias_customer))
 			return false;
 
 		$table = self::getTableName();
 		$id_cart = (int)$context->cart->id;
-		$id_nosto_customer = pSQL($id_nosto_customer);
-		$where = '`id_cart` = '.$id_cart.' AND `id_nosto_customer` = "'.$id_nosto_customer.'"';
+		$id_tiresias_customer = pSQL($id_tiresias_customer);
+		$where = '`id_cart` = '.$id_cart.' AND `id_tiresias_customer` = "'.$id_tiresias_customer.'"';
 		$existing_link = Db::getInstance()->getRow('SELECT * FROM `'.$table.'` WHERE '.$where);
 		if (empty($existing_link))
 		{
 			$data = array(
 				'id_cart' => $id_cart,
-				'id_nosto_customer' => $id_nosto_customer,
+				'id_tiresias_customer' => $id_tiresias_customer,
 				'date_add' => date('Y-m-d H:i:s')
 			);
 			if (_PS_VERSION_ >= '1.5')
@@ -116,29 +116,29 @@ class NostoTaggingHelperCustomer
 	}
 
 	/**
-	 * Returns the customers Nosto ID.
+	 * Returns the customers Tiresias ID.
 	 *
 	 * @param Order $order the order to get the customer from.
-	 * @return bool|string the customers Nosto ID or false if not found.
+	 * @return bool|string the customers Tiresias ID or false if not found.
 	 */
-	public function getNostoId(Order $order)
+	public function getTiresiasId(Order $order)
 	{
 		$table = self::getTableName();
 		$id_cart = (int)$order->id_cart;
-		$sql = 'SELECT `id_nosto_customer` FROM `'.$table.'` WHERE `id_cart` = '.$id_cart.' ORDER BY `date_add` ASC';
+		$sql = 'SELECT `id_tiresias_customer` FROM `'.$table.'` WHERE `id_cart` = '.$id_cart.' ORDER BY `date_add` ASC';
 		return Db::getInstance()->getValue($sql);
 	}
 
 	/**
-	 * Reads the Nosto cookie value and returns it.
+	 * Reads the Tiresias cookie value and returns it.
 	 *
 	 * @return null the cookie value, or null if not set.
 	 */
 	protected function readCookieValue()
 	{
 		// We use the $_COOKIE global directly here, instead of the Prestashop cookie class, as we are accessing a
-		// nosto cookie that have been set by the JavaScript loaded from nosto.com. We read it to keep a mapping of
-		// the Nosto user ID and the Prestashop user ID so we can identify which user actually completed an order.
+		// tiresias cookie that have been set by the JavaScript loaded from tiresias.com. We read it to keep a mapping of
+		// the Tiresias user ID and the Prestashop user ID so we can identify which user actually completed an order.
 		// We do this for tracking whether or not to send abandoned cart emails.
 		return isset($_COOKIE[self::COOKIE_NAME])
 			? $_COOKIE[self::COOKIE_NAME]

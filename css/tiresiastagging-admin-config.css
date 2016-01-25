@@ -1,16 +1,16 @@
-/* Nosto overrides */
+/* Tiresias overrides */
 
-#content.bootstrap .nostotagging .panel {
+#content.bootstrap .tiresiastagging .panel {
     padding: 0;
     font-family: inherit;
 }
 
-#content.bootstrap .nostotagging .panel-install {
+#content.bootstrap .tiresiastagging .panel-install {
     padding: 0;
     margin-bottom: 42px;
 }
 
-#content.bootstrap .nostotagging .panel-heading {
+#content.bootstrap .tiresiastagging .panel-heading {
     margin: 0;
     font-size: .8rem;
     line-height: 1.8rem;
@@ -18,48 +18,48 @@
     padding: 5px;
 }
 
-#content.bootstrap .nostotagging .col-xs-1, #content.bootstrap .nostotagging .col-sm-1,
-#content.bootstrap .nostotagging .col-md-1, #content.bootstrap .nostotagging .col-lg-1,
-#content.bootstrap .nostotagging .col-xs-2, #content.bootstrap .nostotagging .col-sm-2,
-#content.bootstrap .nostotagging .col-md-2, #content.bootstrap .nostotagging .col-lg-2,
-#content.bootstrap .nostotagging .col-xs-3, #content.bootstrap .nostotagging .col-sm-3,
-#content.bootstrap .nostotagging .col-md-3, #content.bootstrap .nostotagging .col-lg-3,
-#content.bootstrap .nostotagging .col-xs-4, #content.bootstrap .nostotagging .col-sm-4,
-#content.bootstrap .nostotagging .col-md-4, #content.bootstrap .nostotagging .col-lg-4,
-#content.bootstrap .nostotagging .col-xs-5, #content.bootstrap .nostotagging .col-sm-5,
-#content.bootstrap .nostotagging .col-md-5, #content.bootstrap .nostotagging .col-lg-5,
-#content.bootstrap .nostotagging .col-xs-6, #content.bootstrap .nostotagging .col-sm-6,
-#content.bootstrap .nostotagging .col-md-6, #content.bootstrap .nostotagging .col-lg-6,
-#content.bootstrap .nostotagging .col-xs-7, #content.bootstrap .nostotagging .col-sm-7,
-#content.bootstrap .nostotagging .col-md-7, #content.bootstrap .nostotagging .col-lg-7,
-#content.bootstrap .nostotagging .col-xs-8, #content.bootstrap .nostotagging .col-sm-8,
-#content.bootstrap .nostotagging .col-md-8, #content.bootstrap .nostotagging .col-lg-8,
-#content.bootstrap .nostotagging .col-xs-9, #content.bootstrap .nostotagging .col-sm-9,
-#content.bootstrap .nostotagging .col-md-9, #content.bootstrap .nostotagging .col-lg-9,
-#content.bootstrap .nostotagging .col-xs-10, #content.bootstrap .nostotagging .col-sm-10,
-#content.bootstrap .nostotagging .col-md-10, #content.bootstrap .nostotagging .col-lg-10,
-#content.bootstrap .nostotagging .col-xs-11, #content.bootstrap .nostotagging .col-sm-11,
-#content.bootstrap .nostotagging .col-md-11, #content.bootstrap .nostotagging .col-lg-11,
-#content.bootstrap .nostotagging .col-xs-12, #content.bootstrap .nostotagging .col-sm-12,
-#content.bootstrap .nostotagging .col-md-12, #content.bootstrap .nostotagging .col-lg-12 {
+#content.bootstrap .tiresiastagging .col-xs-1, #content.bootstrap .tiresiastagging .col-sm-1,
+#content.bootstrap .tiresiastagging .col-md-1, #content.bootstrap .tiresiastagging .col-lg-1,
+#content.bootstrap .tiresiastagging .col-xs-2, #content.bootstrap .tiresiastagging .col-sm-2,
+#content.bootstrap .tiresiastagging .col-md-2, #content.bootstrap .tiresiastagging .col-lg-2,
+#content.bootstrap .tiresiastagging .col-xs-3, #content.bootstrap .tiresiastagging .col-sm-3,
+#content.bootstrap .tiresiastagging .col-md-3, #content.bootstrap .tiresiastagging .col-lg-3,
+#content.bootstrap .tiresiastagging .col-xs-4, #content.bootstrap .tiresiastagging .col-sm-4,
+#content.bootstrap .tiresiastagging .col-md-4, #content.bootstrap .tiresiastagging .col-lg-4,
+#content.bootstrap .tiresiastagging .col-xs-5, #content.bootstrap .tiresiastagging .col-sm-5,
+#content.bootstrap .tiresiastagging .col-md-5, #content.bootstrap .tiresiastagging .col-lg-5,
+#content.bootstrap .tiresiastagging .col-xs-6, #content.bootstrap .tiresiastagging .col-sm-6,
+#content.bootstrap .tiresiastagging .col-md-6, #content.bootstrap .tiresiastagging .col-lg-6,
+#content.bootstrap .tiresiastagging .col-xs-7, #content.bootstrap .tiresiastagging .col-sm-7,
+#content.bootstrap .tiresiastagging .col-md-7, #content.bootstrap .tiresiastagging .col-lg-7,
+#content.bootstrap .tiresiastagging .col-xs-8, #content.bootstrap .tiresiastagging .col-sm-8,
+#content.bootstrap .tiresiastagging .col-md-8, #content.bootstrap .tiresiastagging .col-lg-8,
+#content.bootstrap .tiresiastagging .col-xs-9, #content.bootstrap .tiresiastagging .col-sm-9,
+#content.bootstrap .tiresiastagging .col-md-9, #content.bootstrap .tiresiastagging .col-lg-9,
+#content.bootstrap .tiresiastagging .col-xs-10, #content.bootstrap .tiresiastagging .col-sm-10,
+#content.bootstrap .tiresiastagging .col-md-10, #content.bootstrap .tiresiastagging .col-lg-10,
+#content.bootstrap .tiresiastagging .col-xs-11, #content.bootstrap .tiresiastagging .col-sm-11,
+#content.bootstrap .tiresiastagging .col-md-11, #content.bootstrap .tiresiastagging .col-lg-11,
+#content.bootstrap .tiresiastagging .col-xs-12, #content.bootstrap .tiresiastagging .col-sm-12,
+#content.bootstrap .tiresiastagging .col-md-12, #content.bootstrap .tiresiastagging .col-lg-12 {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-#content.bootstrap .nostotagging .content-panel .panel {
+#content.bootstrap .tiresiastagging .content-panel .panel {
     border-color: #fff;
 }
 
-.tw-bs .nostotagging {
+.tw-bs .tiresiastagging {
     font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.tw-bs .nostotagging label {
+.tw-bs .tiresiastagging label {
     padding: 0;
     margin: 0;
     width: auto;
@@ -67,23 +67,23 @@
     float: none;
 }
 
-.tw-bs .nostotagging h2,
-.tw-bs .nostotagging h6 {
+.tw-bs .tiresiastagging h2,
+.tw-bs .tiresiastagging h6 {
     font-weight: 700;
 }
 
-.tw-bs .nostotagging h2 {
+.tw-bs .tiresiastagging h2 {
     color: #2e3b51;
 }
 
-.tw-bs .nostotagging iframe {
+.tw-bs .tiresiastagging iframe {
     width: 100%;
     min-height: 1000px;
 }
 
-.tw-bs .nostotagging .form-control,
-.tw-bs .nostotagging input[type="text"],
-.tw-bs .nostotagging select {
+.tw-bs .tiresiastagging .form-control,
+.tw-bs .tiresiastagging input[type="text"],
+.tw-bs .tiresiastagging select {
     font-size: 1rem;
     height: 3.25rem;
     display: block;
@@ -101,7 +101,7 @@
     transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
 }
 
-.tw-bs .nostotagging .panel-default > .panel-heading {
+.tw-bs .tiresiastagging .panel-default > .panel-heading {
     background-color: #fff;
     font-size: 1.0em;
     line-height: 2.0em;
@@ -112,49 +112,49 @@
     text-transform: uppercase;
 }
 
-.tw-bs .nostotagging .panel-heading select {
+.tw-bs .tiresiastagging .panel-heading select {
     font-size: .8rem;
     display: inline-block;
     height: auto;
     width: auto;
 }
 
-.tw-bs .nostotagging .panel-heading label {
+.tw-bs .tiresiastagging .panel-heading label {
     text-align: left;
     font-weight: 400;
     font-size: 14px;
     color: #2e3b51;
 }
 
-.tw-bs .nostotagging .panel-heading a {
+.tw-bs .tiresiastagging .panel-heading a {
     color: #2e3b51;
     font-weight: 400;
 }
 
-.tw-bs .nostotagging .panel-body:before,
-.tw-bs .nostotagging .panel-body:after {
+.tw-bs .tiresiastagging .panel-body:before,
+.tw-bs .tiresiastagging .panel-body:after {
     content: " ";
     display: table;
 }
 
-.tw-bs .nostotagging .panel-body:after {
+.tw-bs .tiresiastagging .panel-body:after {
     clear: both;
 }
 
-.tw-bs .nostotagging .panel-body {
+.tw-bs .tiresiastagging .panel-body {
     padding: 0;
 }
 
-.tw-bs .nostotagging .panes {
+.tw-bs .tiresiastagging .panes {
     margin-bottom: 20px;
     color: #2e3b51;
 }
 
-.tw-bs .nostotagging .login-block .panes {
+.tw-bs .tiresiastagging .login-block .panes {
     margin-bottom: 0;
 }
 
-.tw-bs .nostotagging .btn.btn-blue {
+.tw-bs .tiresiastagging .btn.btn-blue {
     color: white;
     background-color: #429BD1;
     border-color: #3795ce;
@@ -164,14 +164,14 @@
     font-weight: 700;
 }
 
-.tw-bs .nostotagging .btn.btn-red {
+.tw-bs .tiresiastagging .btn.btn-red {
     color: white;
     background-color: rgb(217, 83, 79);
     border-color: rgb(217, 83, 79);
     font-weight: 700;
 }
 
-.tw-bs .nostotagging .terms-block {
+.tw-bs .tiresiastagging .terms-block {
     color: white;
     width: 75%;
     margin: 0 auto;
@@ -183,7 +183,7 @@
 }
 
 .tw-bs .right-block {
-    background: #364156 url("https://my.nosto.com/public/platform/img/install-bg.png") no-repeat top left;
+    background: #364156 url("https://my.tiresias.com/public/platform/img/install-bg.png") no-repeat top left;
     background-size: cover;
     color: #fff;
     height: 800px;

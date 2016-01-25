@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,15 +18,15 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
  * Model for tagging products.
  */
-class NostoTaggingProduct extends NostoTaggingModel implements NostoProductInterface, NostoValidatableInterface
+class TiresiasTaggingProduct extends TiresiasTaggingModel implements TiresiasProductInterface, TiresiasValidatableInterface
 {
 	const IN_STOCK = 'InStock';
 	const OUT_OF_STOCK = 'OutOfStock';
@@ -135,8 +135,8 @@ class NostoTaggingProduct extends NostoTaggingModel implements NostoProductInter
 		if (!Validate::isLoadedObject($product))
 			return;
 
-		/** @var NostoTaggingHelperUrl $url_helper */
-		$url_helper = Nosto::helper('nosto_tagging/url');
+		/** @var TiresiasTaggingHelperUrl $url_helper */
+		$url_helper = Tiresias::helper('tiresias_tagging/url');
 
 		$id_lang = $context->language->id;
 		$id_shop = $context->shop->id;
@@ -155,7 +155,7 @@ class NostoTaggingProduct extends NostoTaggingModel implements NostoProductInter
 		$this->short_description = $product->description_short;
 		$this->description = $product->description;
 		$this->brand = (!empty($product->manufacturer_name)) ? $product->manufacturer_name : null;
-		$this->date_published = Nosto::helper('date')->format($product->date_add);
+		$this->date_published = Tiresias::helper('date')->format($product->date_add);
 	}
 
 	/**
@@ -205,7 +205,7 @@ class NostoTaggingProduct extends NostoTaggingModel implements NostoProductInter
 			$context,
 			true // $use_customer_price
 		);
-		return Nosto::helper('price')->format($value);
+		return Tiresias::helper('price')->format($value);
 	}
 
 	/**
@@ -261,7 +261,7 @@ class NostoTaggingProduct extends NostoTaggingModel implements NostoProductInter
 		$categories = array();
 		foreach ($product->getCategories() as $category_id)
 		{
-			$category = NostoTaggingCategory::buildCategoryString($category_id, $id_lang);
+			$category = TiresiasTaggingCategory::buildCategoryString($category_id, $id_lang);
 			if (!empty($category))
 				$categories[] = $category;
 		}

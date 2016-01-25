@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,15 +18,15 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
- * Meta data class for oauth related information needed when connecting accounts to Nosto.
+ * Meta data class for oauth related information needed when connecting accounts to Tiresias.
  */
-class NostoTaggingMetaOauth implements NostoOAuthClientMetaDataInterface
+class TiresiasTaggingMetaOauth implements TiresiasOAuthClientMetaDataInterface
 {
 	/**
 	 * @var string the url where the oauth2 server should redirect after
@@ -64,8 +64,8 @@ class NostoTaggingMetaOauth implements NostoOAuthClientMetaDataInterface
 		$id_lang = (int)$context->language->id;
 		$id_shop = (int)$context->shop->id;
 		$params = array('language_id' => (int)$language->id);
-		/** @var NostoTaggingHelperUrl $url_helper */
-		$url_helper = Nosto::helper('nosto_tagging/url');
+		/** @var TiresiasTaggingHelperUrl $url_helper */
+		$url_helper = Tiresias::helper('tiresias_tagging/url');
 
 		$this->redirect_url = $url_helper->getModuleUrl($this->module_name, $this->module_path, 'oauth2', $id_lang, $id_shop, $params);
 		$this->language_iso_code = $language->iso_code;
@@ -73,7 +73,7 @@ class NostoTaggingMetaOauth implements NostoOAuthClientMetaDataInterface
 
 	/**
 	 * The OAuth2 client ID.
-	 * This will be a platform specific ID that Nosto will issue.
+	 * This will be a platform specific ID that Tiresias will issue.
 	 *
 	 * @return string the client id.
 	 */
@@ -84,7 +84,7 @@ class NostoTaggingMetaOauth implements NostoOAuthClientMetaDataInterface
 
 	/**
 	 * The OAuth2 client secret.
-	 * This will be a platform specific secret that Nosto will issue.
+	 * This will be a platform specific secret that Tiresias will issue.
 	 *
 	 * @return string the client secret.
 	 */
@@ -95,22 +95,22 @@ class NostoTaggingMetaOauth implements NostoOAuthClientMetaDataInterface
 
 	/**
 	 * The scopes for the OAuth2 request.
-	 * These are used to request specific API tokens from Nosto and should
-	 * almost always be the ones defined in NostoApiToken::getApiTokenNames().
+	 * These are used to request specific API tokens from Tiresias and should
+	 * almost always be the ones defined in TiresiasApiToken::getApiTokenNames().
 	 *
 	 * @return array the scopes.
 	 */
 	public function getScopes()
 	{
-		// We want all the available Nosto API tokens.
-		return NostoApiToken::getApiTokenNames();
+		// We want all the available Tiresias API tokens.
+		return TiresiasApiToken::getApiTokenNames();
 	}
 
 	/**
 	 * The OAuth2 redirect url to where the OAuth2 server should redirect the
 	 * user after authorizing the application to act on the users behalf.
 	 * This url must by publicly accessible and the domain must match the one
-	 * defined for the Nosto account.
+	 * defined for the Tiresias account.
 	 *
 	 * @return string the url.
 	 */

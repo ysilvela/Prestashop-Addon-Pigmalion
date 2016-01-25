@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 Betechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@betechnology.es so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,8 +18,8 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@betechnology.es>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -62,7 +62,7 @@ if ((basename(__FILE__) === 'tiresiastagging.php'))
 }
 
 /**
- * TiresiasTagging module that integrates Nosto marketing automation service.
+ * TiresiasTagging module that integrates BeTechnology marketing automation service.
  *
  * @property Context $context
  */
@@ -122,13 +122,13 @@ class TiresiasTagging extends Module
 		// Only try to use class files if we can resolve the __FILE__ global to the current file.
 		// We need to do this as this module file is parsed with eval() on the modules page,
 		// and eval() messes up the __FILE__ global, which means that class files have not been included.
-		if ((basename(__FILE__) === 'nostotagging.php'))
+		if ((basename(__FILE__) === 'tiresiastagging.php'))
 		{
 			if (!$this->checkConfigState())
-				$this->warning = $this->l('A Nosto account is not set up for each shop and language.');
+				$this->warning = $this->l('A BeTechnology account is not set up for each shop and language.');
 
 			// Check for module updates for PS < 1.5.4.0.
-			Nosto::helper('nosto_tagging/updater')->checkForUpdates($this);
+			Tiresias::helper('tiresias_tagging/updater')->checkForUpdates($this);
 		}
 	}
 
@@ -144,8 +144,8 @@ class TiresiasTagging extends Module
 	public function install()
 	{
 		if (parent::install()
-			&& Nosto::helper('nosto_tagging/customer')->createTable()
-			&& Nosto::helper('nosto_tagging/admin_tab')->install()
+			&& Tiresias::helper('tiresias_tagging/customer')->createTable()
+			&& Tiresias::helper('tiresias_tagging/admin_tab')->install()
 			&& $this->initHooks()
 			&& $this->registerHook('displayCategoryTop')
 			&& $this->registerHook('displayCategoryFooter')
@@ -163,9 +163,9 @@ class TiresiasTagging extends Module
 		{
 			// For versions 1.4.0.1 - 1.5.3.1 we need to keep track of the currently installed version.
 			// This is to enable auto-update of the module by running its upgrade scripts.
-			// This config value is updated in the NostoTaggingUpdater helper every time the module is updated.
+			// This config value is updated in the TiresiasTaggingUpdater helper every time the module is updated.
 			if (version_compare(_PS_VERSION_, '1.5.4.0', '<'))
-				Nosto::helper('nosto_tagging/config')->saveInstalledVersion($this->version);
+				Tiresias::helper('tiresias_tagging/config')->saveInstalledVersion($this->version);
 
 			if (_PS_VERSION_ < '1.5')
 			{
@@ -199,10 +199,10 @@ class TiresiasTagging extends Module
 	public function uninstall()
 	{
 		return parent::uninstall()
-			&& Nosto::helper('nosto_tagging/account')->deleteAll()
-			&& Nosto::helper('nosto_tagging/config')->purge()
-			&& Nosto::helper('nosto_tagging/customer')->dropTable()
-			&& Nosto::helper('nosto_tagging/admin_tab')->uninstall();
+			&& Tiresias::helper('tiresias_tagging/account')->deleteAll()
+			&& Tiresias::helper('tiresias_tagging/config')->purge()
+			&& Tiresias::helper('tiresias_tagging/customer')->dropTable()
+			&& Tiresias::helper('tiresias_tagging/admin_tab')->uninstall();
 	}
 
 	/**
@@ -216,7 +216,7 @@ class TiresiasTagging extends Module
 		// Always update the url to the module admin page when we access it.
 		// This can then later be used by the oauth2 controller to redirect the user back.
 		$admin_url = $this->getAdminUrl();
-		Nosto::helper('nosto_tagging/config')->saveAdminUrl($admin_url);
+		Tiresias::helper('tiresias_tagging/config')->saveAdminUrl($admin_url);
 
 		$output = '';
 
@@ -224,8 +224,8 @@ class TiresiasTagging extends Module
 		/** @var EmployeeCore $employee */
 		$employee = $this->context->employee;
 		$account_email = $employee->email;
-		/** @var NostoTaggingHelperFlashMessage $helper_flash */
-		$helper_flash = Nosto::helper('nosto_tagging/flash_message');
+		/** @var TiresiasTaggingHelperFlashMessage $helper_flash */
+		$helper_flash = Tiresias::helper('tiresias_tagging/flash_message');
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		{
@@ -239,7 +239,7 @@ class TiresiasTagging extends Module
 			}
 			elseif ($current_language['id_lang'] != $language_id)
 				$helper_flash->add('error', $this->l('Language cannot be empty.'));
-			elseif (Tools::isSubmit('submit_nostotagging_new_account'))
+			elseif (Tools::isSubmit('submit_tiresiastagging_new_account'))
 			{
 				$account_email = (string)Tools::getValue($this->name.'_account_email');
 				if (empty($account_email))
@@ -247,28 +247,28 @@ class TiresiasTagging extends Module
 				elseif (!Validate::isEmail($account_email))
 					$helper_flash->add('error', $this->l('Email is not a valid email address.'));
 				elseif (!$this->createAccount($language_id, $account_email))
-					$helper_flash->add('error', $this->l('Account could not be automatically created. Please visit nosto.com to create a new account.'));
+					$helper_flash->add('error', $this->l('Account could not be automatically created. Please visit tiresias.com to create a new account.'));
 				else
 					$helper_flash->add('success', $this->l('Account created. Please check your email and follow the instructions to set a password for your new account within three days.'));
 			}
-			elseif (Tools::isSubmit('submit_nostotagging_authorize_account'))
+			elseif (Tools::isSubmit('submit_tiresiastagging_authorize_account'))
 			{
-				$meta = new NostoTaggingMetaOauth();
+				$meta = new TiresiasTaggingMetaOauth();
 				$meta->setModuleName($this->name);
 				$meta->setModulePath($this->_path);
 				$meta->loadData($this->context, $language_id);
-				$client = new NostoOAuthClient($meta);
+				$client = new TiresiasOAuthClient($meta);
 				Tools::redirect($client->getAuthorizationUrl(), '');
 				die();
 			}
-			elseif (Tools::isSubmit('submit_nostotagging_reset_account'))
+			elseif (Tools::isSubmit('submit_tiresiastagging_reset_account'))
 			{
-				$account = Nosto::helper('nosto_tagging/account')->find($language_id);
-				Nosto::helper('nosto_tagging/account')->delete($account, $language_id);
+				$account = Tiresias::helper('tiresias_tagging/account')->find($language_id);
+				Tiresias::helper('tiresias_tagging/account')->delete($account, $language_id);
 			}
 
 			// Refresh the page after every POST to get rid of form re-submission errors.
-			Tools::redirect(NostoHttpRequest::replaceQueryParamInUrl('language_id', $language_id, $admin_url), '');
+			Tools::redirect(TiresiasHttpRequest::replaceQueryParamInUrl('language_id', $language_id, $admin_url), '');
 			die;
 		}
 		else
@@ -286,7 +286,7 @@ class TiresiasTagging extends Module
 				$output .= $this->displayError($flash_message);
 
 			if (_PS_VERSION_ >= '1.5' && Shop::getContext() !== Shop::CONTEXT_SHOP)
-				$output .= $this->displayError($this->l('Please choose a shop to configure Nosto for.'));
+				$output .= $this->displayError($this->l('Please choose a shop to configure Tiresias for.'));
 		}
 
 		// Choose current language if it has not been set.
@@ -296,42 +296,42 @@ class TiresiasTagging extends Module
 			$language_id = (int)$current_language['id_lang'];
 		}
 
-		/** @var NostoAccount $account */
-		$account = Nosto::helper('nosto_tagging/account')->find($language_id);
+		/** @var TiresiasAccount $account */
+		$account = Tiresias::helper('tiresias_tagging/account')->find($language_id);
 
 		$this->context->smarty->assign(array(
 			$this->name.'_form_action' => $this->getAdminUrl(),
 			$this->name.'_has_account' => ($account !== null),
 			$this->name.'_account_name' => ($account !== null) ? $account->getName() : null,
 			$this->name.'_account_email' => $account_email,
-			$this->name.'_account_authorized' => ($account !== null) ? $account->isConnectedToNosto() : false,
+			$this->name.'_account_authorized' => ($account !== null) ? $account->isConnectedToTiresias() : false,
 			$this->name.'_languages' => $languages,
 			$this->name.'_current_language' => $current_language,
 			// Hack a few translations for the view as PS 1.4 does not support sprintf syntax in smarty "l" function.
 			'translations' => array(
-				'nostotagging_installed_heading' => sprintf(
-					$this->l('You have installed Nosto to your %s shop'),
+				'tiresiastagging_installed_heading' => sprintf(
+					$this->l('You have installed Tiresias to your %s shop'),
 					$current_language['name']
 				),
-				'nostotagging_installed_subheading' => sprintf(
+				'tiresiastagging_installed_subheading' => sprintf(
 					$this->l('Your account ID is %s'),
 					($account !== null) ? $account->getName() : ''
 				),
-				'nostotagging_not_installed_subheading' => sprintf(
-					$this->l('Install Nosto to your %s shop'),
+				'tiresiastagging_not_installed_subheading' => sprintf(
+					$this->l('Install Tiresias to your %s shop'),
 					$current_language['name']
 				),
 			),
 			$this->name.'_ps_version_class' => 'ps-'.str_replace('.', '', Tools::substr(_PS_VERSION_, 0, 3))
 		));
 
-		// Try to login employee to Nosto in order to get a url to the internal setting pages,
+		// Try to login employee to Tiresias in order to get a url to the internal setting pages,
 		// which are then shown in an iframe on the module config page.
-		if ($account && $account->isConnectedToNosto())
+		if ($account && $account->isConnectedToTiresias())
 		{
 			try
 			{
-				$meta = new NostoTaggingMetaAccountIframe();
+				$meta = new TiresiasTaggingMetaAccountIframe();
 				$meta->setUniqueId($this->getUniqueInstallationId());
 				$meta->setVersionModule($this->version);
 				$meta->loadData($this->context, $language_id);
@@ -339,9 +339,9 @@ class TiresiasTagging extends Module
 				if (!empty($url))
 					$this->context->smarty->assign(array('iframe_url' => $url));
 			}
-			catch (NostoException $e)
+			catch (TiresiasException $e)
 			{
-				Nosto::helper('nosto_tagging/logger')->error(
+				Tiresias::helper('tiresias_tagging/logger')->error(
 					__CLASS__.'::'.__FUNCTION__.' - '.$e->getMessage(),
 					$e->getCode(),
 					'Employee',
@@ -351,16 +351,16 @@ class TiresiasTagging extends Module
 		}
 
 		$stylesheets = '<link rel="stylesheet" href="'.$this->_path.'css/tw-bs-v3.1.1.css">';
-		$stylesheets .= '<link rel="stylesheet" href="'.$this->_path.'css/nostotagging-admin-config.css">';
+		$stylesheets .= '<link rel="stylesheet" href="'.$this->_path.'css/tiresiastagging-admin-config.css">';
 		$scripts = '<script type="text/javascript" src="'.$this->_path.'js/iframeresizer.min.js"></script>';
-		$scripts .= '<script type="text/javascript" src="'.$this->_path.'js/nostotagging-admin-config.js"></script>';
+		$scripts .= '<script type="text/javascript" src="'.$this->_path.'js/tiresiastagging-admin-config.js"></script>';
 		$output .= $this->display(__FILE__, 'views/templates/admin/config-bootstrap.tpl');
 
 		return $stylesheets.$scripts.$output;
 	}
 
 	/**
-	 * Creates a new Nosto account for given shop language.
+	 * Creates a new Tiresias account for given shop language.
 	 *
 	 * @param int $id_lang the language ID for which to create the account.
 	 * @param string $email the account owner email address.
@@ -370,16 +370,16 @@ class TiresiasTagging extends Module
 	{
 		try
 		{
-			$meta = new NostoTaggingMetaAccount();
+			$meta = new TiresiasTaggingMetaAccount();
 			$meta->loadData($this->context, $id_lang);
 			$meta->getOwner()->setEmail($email);
-			/** @var NostoAccount $account */
-			$account = NostoAccount::create($meta);
-			return Nosto::helper('nosto_tagging/account')->save($account, $id_lang);
+			/** @var TiresiasAccount $account */
+			$account = TiresiasAccount::create($meta);
+			return Tiresias::helper('tiresias_tagging/account')->save($account, $id_lang);
 		}
-		catch (NostoException $e)
+		catch (TiresiasException $e)
 		{
-			Nosto::helper('nosto_tagging/logger')->error(
+			Tiresias::helper('tiresias_tagging/logger')->error(
 				__CLASS__.'::'.__FUNCTION__.' - '.$e->getMessage(),
 				$e->getCode()
 			);
@@ -400,15 +400,15 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content to the <head> section of the HTML pages.
 	 *
-	 * Adds the Nosto embed script.
+	 * Adds the Tiresias embed script.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayHeader()
 	{
-		$server_address = Nosto::helper('nosto_tagging/url')->getServerAddress();
-		/** @var NostoAccount $account */
-		$account = Nosto::helper('nosto_tagging/account')->find($this->context->language->id);
+		$server_address = Tiresias::helper('tiresias_tagging/url')->getServerAddress();
+		/** @var TiresiasAccount $account */
+		$account = Tiresias::helper('tiresias_tagging/account')->find($this->context->language->id);
 		if ($account === null)
 			return '';
 
@@ -417,13 +417,13 @@ class TiresiasTagging extends Module
 		$this->smarty->assign(array(
 			'server_address' => $server_address,
 			'account_name' => $account->getName(),
-			'nosto_version' => $this->version,
-			'nosto_unique_id' => $this->getUniqueInstallationId(),
-			'nosto_language' => Tools::strtolower($this->context->language->iso_code),
+			'tiresias_version' => $this->version,
+			'tiresias_unique_id' => $this->getUniqueInstallationId(),
+			'tiresias_language' => Tools::strtolower($this->context->language->iso_code),
 			'add_to_cart_url' => $link->getPageLink('cart.php'),
 		));
 
-		$this->context->controller->addJS($this->_path.'js/nostotagging-auto-slots.js');
+		$this->context->controller->addJS($this->_path.'js/tiresiastagging-auto-slots.js');
 
 		$html = $this->display(__FILE__, 'views/templates/hook/header_meta-tags.tpl');
 		$html .= $this->display(__FILE__, 'views/templates/hook/header_embed-script.tpl');
@@ -435,7 +435,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayHeader()
+	 * @see TiresiasTagging::hookDisplayHeader()
 	 * @return string The HTML to output
 	 */
 	public function hookHeader()
@@ -448,30 +448,30 @@ class TiresiasTagging extends Module
 	 *
 	 * Note: PS 1.5+ only.
 	 *
-	 * Adds Nosto admin tab CSS.
+	 * Adds Tiresias admin tab CSS.
 	 */
 	public function hookDisplayBackOfficeHeader()
 	{
 		// In some cases, the controller in the context is actually not an instance of `AdminController`,
 		// but of `AdminTab`. This class does not have an `addCss` method.
 		// In these cases, we skip adding the CSS which will only cause the logo to be missing for the
-		// Nosto menu item in PS >= 1.6.
+		// Tiresias menu item in PS >= 1.6.
 		$ctrl = $this->context->controller;
 		if ($ctrl instanceof AdminController && method_exists($ctrl, 'addCss'))
-			$ctrl->addCss($this->_path.'css/nostotagging-back-office.css');
+			$ctrl->addCss($this->_path.'css/tiresiastagging-back-office.css');
 	}
 
 	/**
 	 * Hook for adding content to the top of every page.
 	 *
 	 * Adds customer and cart tagging.
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayTop()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
 		$html = '';
@@ -507,7 +507,7 @@ class TiresiasTagging extends Module
 				$html .= $this->getSearchTagging($search_term);
 		}
 
-		$html .= $this->display(__FILE__, 'views/templates/hook/top_nosto-elements.tpl');
+		$html .= $this->display(__FILE__, 'views/templates/hook/top_tiresias-elements.tpl');
 		$html .= $this->getHiddenRecommendationElements();
 
 		return $html;
@@ -516,7 +516,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayTop()
+	 * @see TiresiasTagging::hookDisplayTop()
 	 * @return string The HTML to output
 	 */
 	public function hookTop()
@@ -527,22 +527,22 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content to the footer of every page.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayFooter()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/footer_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/footer_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayFooter()
+	 * @see TiresiasTagging::hookDisplayFooter()
 	 * @return string The HTML to output
 	 */
 	public function hookFooter()
@@ -553,22 +553,22 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content to the left column of every page.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayLeftColumn()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/left-column_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/left-column_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayLeftColumn()
+	 * @see TiresiasTagging::hookDisplayLeftColumn()
 	 * @return string The HTML to output
 	 */
 	public function hookLeftColumn()
@@ -579,22 +579,22 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content to the right column of every page.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayRightColumn()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/right-column_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/right-column_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayRightColumn()
+	 * @see TiresiasTagging::hookDisplayRightColumn()
 	 * @return string The HTML to output
 	 */
 	public function hookRightColumn()
@@ -606,14 +606,14 @@ class TiresiasTagging extends Module
 	 * Hook for adding content below the product description on the product page.
 	 *
 	 * Adds product tagging.
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @param array $params
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayFooterProduct(Array $params)
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
 		$html = '';
@@ -622,7 +622,7 @@ class TiresiasTagging extends Module
 		$category = isset($params['category']) ? $params['category'] : null;
 		$html .= $this->getProductTagging($product, $category);
 
-		$html .= $this->display(__FILE__, 'views/templates/hook/footer-product_nosto-elements.tpl');
+		$html .= $this->display(__FILE__, 'views/templates/hook/footer-product_tiresias-elements.tpl');
 
 		return $html;
 	}
@@ -630,7 +630,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayFooterProduct()
+	 * @see TiresiasTagging::hookDisplayFooterProduct()
 	 * @param array $params
 	 * @return string The HTML to output
 	 */
@@ -642,25 +642,25 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content below the product list on the shopping cart page.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayShoppingCartFooter()
 	{
-		// Update the link between nosto users and prestashop customers.
-		Nosto::helper('nosto_tagging/customer')->updateNostoId();
+		// Update the link between tiresias users and prestashop customers.
+		Tiresias::helper('tiresias_tagging/customer')->updateTiresiasId();
 
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/shopping-cart-footer_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/shopping-cart-footer_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayShoppingCartFooter()
+	 * @see TiresiasTagging::hookDisplayShoppingCartFooter()
 	 * @return string The HTML to output
 	 */
 	public function hookShoppingCart()
@@ -672,14 +672,14 @@ class TiresiasTagging extends Module
 	 * Hook for adding content on the order confirmation page.
 	 *
 	 * Adds completed order tagging.
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @param array $params
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayOrderConfirmation(Array $params)
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
 		$html = '';
@@ -693,7 +693,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayOrderConfirmation()
+	 * @see TiresiasTagging::hookDisplayOrderConfirmation()
 	 * @param array $params
 	 * @return string The HTML to output
 	 */
@@ -705,7 +705,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content to category page above the product list.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * Please note that in order for this hook to be executed, it will have to be added to the theme category.tpl file.
 	 *
@@ -716,16 +716,16 @@ class TiresiasTagging extends Module
 	 */
 	public function hookDisplayCategoryTop()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/category-top_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/category-top_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Hook for adding content to category page below the product list.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * Please note that in order for this hook to be executed, it will have to be added to the theme category.tpl file.
 	 *
@@ -736,16 +736,16 @@ class TiresiasTagging extends Module
 	 */
 	public function hookDisplayCategoryFooter()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/category-footer_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/category-footer_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Hook for adding content to search page above the search result list.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * Please note that in order for this hook to be executed, it will have to be added to the theme search.tpl file.
 	 *
@@ -756,16 +756,16 @@ class TiresiasTagging extends Module
 	 */
 	public function hookDisplaySearchTop()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/search-top_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/search-top_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Hook for adding content to search page below the search result list.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * Please note that in order for this hook to be executed, it will have to be added to the theme search.tpl file.
 	 *
@@ -776,24 +776,24 @@ class TiresiasTagging extends Module
 	 */
 	public function hookDisplaySearchFooter()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/search-footer_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/search-footer_tiresias-elements.tpl');
 	}
 
 	/**
-	 * Hook for updating the customer link table with the Prestashop customer id and the Nosto customer id.
+	 * Hook for updating the customer link table with the Prestashop customer id and the Tiresias customer id.
 	 */
 	public function hookDisplayPaymentTop()
 	{
-		Nosto::helper('nosto_tagging/customer')->updateNostoId();
+		Tiresias::helper('tiresias_tagging/customer')->updateTiresiasId();
 	}
 
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayPaymentTop()
+	 * @see TiresiasTagging::hookDisplayPaymentTop()
 	 */
 	public function hookPaymentTop()
 	{
@@ -801,7 +801,7 @@ class TiresiasTagging extends Module
 	}
 
 	/**
-	 * Hook for sending order confirmations to Nosto via the API.
+	 * Hook for sending order confirmations to Tiresias via the API.
 	 *
 	 * This is a fallback for the regular order tagging on the "order confirmation page", as there are cases when
 	 * the customer does not get redirected back to the shop after the payment is completed.
@@ -816,9 +816,9 @@ class TiresiasTagging extends Module
 			if (!Validate::isLoadedObject($order))
 				return;
 
-			$nosto_order = new NostoTaggingOrder();
-			$nosto_order->loadData($this->context, $order);
-			$validator = new NostoValidator($nosto_order);
+			$tiresias_order = new TiresiasTaggingOrder();
+			$tiresias_order->loadData($this->context, $order);
+			$validator = new TiresiasValidator($tiresias_order);
 			if (!$validator->validate())
 				return;
 
@@ -826,18 +826,18 @@ class TiresiasTagging extends Module
 			$id_shop_group = isset($order->id_shop_group) ? $order->id_shop_group : null;
 			$id_shop = isset($order->id_shop) ? $order->id_shop : null;
 			// This is done out of context, so we need to specify the exact parameters to get the correct account.
-			/** @var NostoAccount $account */
-			$account = Nosto::helper('nosto_tagging/account')->find($order->id_lang, $id_shop_group, $id_shop);
-			if ($account !== null && $account->isConnectedToNosto())
+			/** @var TiresiasAccount $account */
+			$account = Tiresias::helper('tiresias_tagging/account')->find($order->id_lang, $id_shop_group, $id_shop);
+			if ($account !== null && $account->isConnectedToTiresias())
 			{
 				try
 				{
-					$customer_id = Nosto::helper('nosto_tagging/customer')->getNostoId($order);
-					NostoOrderConfirmation::send($nosto_order, $account, $customer_id);
+					$customer_id = Tiresias::helper('tiresias_tagging/customer')->getTiresiasId($order);
+					TiresiasOrderConfirmation::send($tiresias_order, $account, $customer_id);
 				}
-				catch (NostoException $e)
+				catch (TiresiasException $e)
 				{
-					Nosto::helper('nosto_tagging/logger')->error(
+					Tiresias::helper('tiresias_tagging/logger')->error(
 						__CLASS__.'::'.__FUNCTION__.' - '.$e->getMessage(),
 						$e->getCode(),
 						'Order',
@@ -851,7 +851,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookActionOrderStatusPostUpdate()
+	 * @see TiresiasTagging::hookActionOrderStatusPostUpdate()
 	 * @param array $params
 	 */
 	public function hookPostUpdateOrderStatus(Array $params)
@@ -862,22 +862,22 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook for adding content to the home page.
 	 *
-	 * Adds nosto elements.
+	 * Adds tiresias elements.
 	 *
 	 * @return string The HTML to output
 	 */
 	public function hookDisplayHome()
 	{
-		if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($this->context->language->id))
+		if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($this->context->language->id))
 			return '';
 
-		return $this->display(__FILE__, 'views/templates/hook/home_nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/home_tiresias-elements.tpl');
 	}
 
 	/**
 	 * Backwards compatibility hook.
 	 *
-	 * @see NostoTagging::hookDisplayHome()
+	 * @see TiresiasTagging::hookDisplayHome()
 	 * @return string The HTML to output
 	 */
 	public function hookHome()
@@ -894,7 +894,7 @@ class TiresiasTagging extends Module
 	{
 		if (isset($params['object']))
 			if ($params['object'] instanceof Product)
-				Nosto::helper('nosto_tagging/product_operation')->update($params['object']);
+				Tiresias::helper('tiresias_tagging/product_operation')->update($params['object']);
 	}
 
 	/**
@@ -906,7 +906,7 @@ class TiresiasTagging extends Module
 	{
 		if (isset($params['object']))
 			if ($params['object'] instanceof Product)
-				Nosto::helper('nosto_tagging/product_operation')->delete($params['object']);
+				Tiresias::helper('tiresias_tagging/product_operation')->delete($params['object']);
 	}
 
 	/**
@@ -918,13 +918,13 @@ class TiresiasTagging extends Module
 	{
 		if (isset($params['object']))
 			if ($params['object'] instanceof Product)
-				Nosto::helper('nosto_tagging/product_operation')->create($params['object']);
+				Tiresias::helper('tiresias_tagging/product_operation')->create($params['object']);
 	}
 
 	/**
 	 * Hook called when a product is update with a new picture, right after said update. (Prestashop 1.4).
 	 *
-	 * @see NostoTagging::hookActionObjectUpdateAfter
+	 * @see TiresiasTagging::hookActionObjectUpdateAfter
 	 * @param array $params
 	 */
 	public function hookUpdateProduct(Array $params)
@@ -936,7 +936,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook called when a product is deleted, right before said deletion (Prestashop 1.4).
 	 *
-	 * @see NostoTagging::hookActionObjectDeleteAfter
+	 * @see TiresiasTagging::hookActionObjectDeleteAfter
 	 * @param array $params
 	 */
 	public function hookDeleteProduct(Array $params)
@@ -948,7 +948,7 @@ class TiresiasTagging extends Module
 	/**
 	 * Hook called when a product is added, right after said addition (Prestashop 1.4).
 	 *
-	 * @see NostoTagging::hookActionObjectAddAfter
+	 * @see TiresiasTagging::hookActionObjectAddAfter
 	 * @param array $params
 	 */
 	public function hookAddProduct(Array $params)
@@ -961,7 +961,7 @@ class TiresiasTagging extends Module
 	 * Hook called during an the validation of an order, the status of which being something other than
 	 * "canceled" or "Payment error", for each of the order's items (Prestashop 1.4).
 	 *
-	 * @see NostoTagging::hookActionObjectUpdateAfter
+	 * @see TiresiasTagging::hookActionObjectUpdateAfter
 	 * @param array $params
 	 */
 	public function hookUpdateQuantity(Array $params)
@@ -1010,7 +1010,7 @@ class TiresiasTagging extends Module
 	}
 
 	/**
-	 * Returns hidden nosto recommendation elements for the current controller.
+	 * Returns hidden tiresias recommendation elements for the current controller.
 	 * These are used as a fallback for showing recommendations if the appropriate hooks are not present in the theme.
 	 * The hidden elements are put into place and shown in the shop with JavaScript.
 	 *
@@ -1024,28 +1024,28 @@ class TiresiasTagging extends Module
 		if ($this->isController('index'))
 		{
 			// The home page.
-			$append .= $this->display(__FILE__, 'views/templates/hook/home_hidden-nosto-elements.tpl');
+			$append .= $this->display(__FILE__, 'views/templates/hook/home_hidden-tiresias-elements.tpl');
 		}
 		elseif ($this->isController('product'))
 		{
 			// The product page.
-			$append .= $this->display(__FILE__, 'views/templates/hook/footer-product_hidden-nosto-elements.tpl');
+			$append .= $this->display(__FILE__, 'views/templates/hook/footer-product_hidden-tiresias-elements.tpl');
 		}
 		elseif ($this->isController('order') && (int)Tools::getValue('step', 0) === 0)
 		{
 			// The cart summary page.
-			$append .= $this->display(__FILE__, 'views/templates/hook/shopping-cart-footer_hidden-nosto-elements.tpl');
+			$append .= $this->display(__FILE__, 'views/templates/hook/shopping-cart-footer_hidden-tiresias-elements.tpl');
 		}
 		elseif ($this->isController('category') || $this->isController('manufacturer'))
 		{
 			// The category/manufacturer page.
-			$append .= $this->display(__FILE__, 'views/templates/hook/category-footer_hidden-nosto-elements.tpl');
+			$append .= $this->display(__FILE__, 'views/templates/hook/category-footer_hidden-tiresias-elements.tpl');
 		}
 		elseif ($this->isController('search'))
 		{
 			// The search page.
-			$prepend .= $this->display(__FILE__, 'views/templates/hook/search-top_hidden-nosto-elements.tpl');
-			$append .= $this->display(__FILE__, 'views/templates/hook/search-footer_hidden-nosto-elements.tpl');
+			$prepend .= $this->display(__FILE__, 'views/templates/hook/search-top_hidden-tiresias-elements.tpl');
+			$append .= $this->display(__FILE__, 'views/templates/hook/search-footer_hidden-tiresias-elements.tpl');
 		}
 		else
 		{
@@ -1054,15 +1054,15 @@ class TiresiasTagging extends Module
 		}
 
 		$this->smarty->assign(array(
-			'hidden_nosto_elements_prepend' => $prepend,
-			'hidden_nosto_elements_append' => $append,
+			'hidden_tiresias_elements_prepend' => $prepend,
+			'hidden_tiresias_elements_append' => $append,
 		));
 
-		return $this->display(__FILE__, 'views/templates/hook/hidden-nosto-elements.tpl');
+		return $this->display(__FILE__, 'views/templates/hook/hidden-tiresias-elements.tpl');
 	}
 
 	/**
-	 * Checks if a Nosto account is set up and connected for each shop and language combo.
+	 * Checks if a Tiresias account is set up and connected for each shop and language combo.
 	 *
 	 * @return bool true if all shops have an account configured for every language.
 	 */
@@ -1074,7 +1074,7 @@ class TiresiasTagging extends Module
 			foreach (Language::getLanguages(true, $id_shop) as $language)
 			{
 				$id_shop_group = isset($shop['id_shop_group']) ? $shop['id_shop_group'] : null;
-				if (!Nosto::helper('nosto_tagging/account')->existsAndIsConnected($language['id_lang'], $id_shop_group, $id_shop))
+				if (!Tiresias::helper('tiresias_tagging/account')->existsAndIsConnected($language['id_lang'], $id_shop_group, $id_shop))
 					return false;
 			}
 		}
@@ -1121,8 +1121,8 @@ class TiresiasTagging extends Module
 	protected function getAdminUrl()
 	{
 		$current_url = Tools::getHttpHost(true).(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '');
-		$parsed_url = NostoHttpRequest::parseUrl($current_url);
-		$parsed_query_string = NostoHttpRequest::parseQueryString($parsed_url['query']);
+		$parsed_url = TiresiasHttpRequest::parseUrl($current_url);
+		$parsed_query_string = TiresiasHttpRequest::parseQueryString($parsed_url['query']);
 		$valid_params = array(
 			'controller',
 			'token',
@@ -1136,7 +1136,7 @@ class TiresiasTagging extends Module
 			if (isset($parsed_query_string[$valid_param]))
 				$query_params[$valid_param] = $parsed_query_string[$valid_param];
 		$parsed_url['query'] = http_build_query($query_params);
-		return NostoHttpRequest::buildUrl($parsed_url);
+		return TiresiasHttpRequest::buildUrl($parsed_url);
 	}
 
 	/**
@@ -1178,14 +1178,14 @@ class TiresiasTagging extends Module
 	 */
 	protected function getCustomerTagging()
 	{
-		$nosto_customer = new NostoTaggingCustomer();
-		if (!$nosto_customer->isCustomerLoggedIn($this->context, $this->context->customer))
+		$tiresias_customer = new TiresiasTaggingCustomer();
+		if (!$tiresias_customer->isCustomerLoggedIn($this->context, $this->context->customer))
 			return '';
 
-		$nosto_customer->loadData($this->context, $this->context->customer);
+		$tiresias_customer->loadData($this->context, $this->context->customer);
 
 		$this->smarty->assign(array(
-			'nosto_customer' => $nosto_customer,
+			'tiresias_customer' => $tiresias_customer,
 		));
 
 		return $this->display(__FILE__, 'views/templates/hook/top_customer-tagging.tpl');
@@ -1198,11 +1198,11 @@ class TiresiasTagging extends Module
 	 */
 	protected function getCartTagging()
 	{
-		$nosto_cart = new NostoTaggingCart();
-		$nosto_cart->loadData($this->context->cart);
+		$tiresias_cart = new TiresiasTaggingCart();
+		$tiresias_cart->loadData($this->context->cart);
 
 		$this->smarty->assign(array(
-			'nosto_cart' => $nosto_cart,
+			'tiresias_cart' => $tiresias_cart,
 		));
 
 		return $this->display(__FILE__, 'views/templates/hook/top_cart-tagging.tpl');
@@ -1217,16 +1217,16 @@ class TiresiasTagging extends Module
 	 */
 	protected function getProductTagging(Product $product, Category $category = null)
 	{
-		$nosto_product = new NostoTaggingProduct();
-		$nosto_product->loadData($this->context, $product);
+		$tiresias_product = new TiresiasTaggingProduct();
+		$tiresias_product->loadData($this->context, $product);
 
-		$params = array('nosto_product' => $nosto_product);
+		$params = array('tiresias_product' => $tiresias_product);
 
 		if (Validate::isLoadedObject($category))
 		{
-			$nosto_category = new NostoTaggingCategory();
-			$nosto_category->loadData($this->context, $category);
-			$params['nosto_category'] = $nosto_category;
+			$tiresias_category = new TiresiasTaggingCategory();
+			$tiresias_category->loadData($this->context, $category);
+			$params['tiresias_category'] = $tiresias_category;
 		}
 
 		$this->smarty->assign($params);
@@ -1241,11 +1241,11 @@ class TiresiasTagging extends Module
 	 */
 	protected function getOrderTagging(Order $order)
 	{
-		$nosto_order = new NostoTaggingOrder();
-		$nosto_order->loadData($this->context, $order);
+		$tiresias_order = new TiresiasTaggingOrder();
+		$tiresias_order->loadData($this->context, $order);
 
 		$this->smarty->assign(array(
-			'nosto_order' => $nosto_order,
+			'tiresias_order' => $tiresias_order,
 		));
 
 		return $this->display(__FILE__, 'views/templates/hook/order-confirmation_order-tagging.tpl');
@@ -1259,11 +1259,11 @@ class TiresiasTagging extends Module
 	 */
 	protected function getCategoryTagging(Category $category)
 	{
-		$nosto_category = new NostoTaggingCategory();
-		$nosto_category->loadData($this->context, $category);
+		$tiresias_category = new TiresiasTaggingCategory();
+		$tiresias_category->loadData($this->context, $category);
 
 		$this->smarty->assign(array(
-			'nosto_category' => $nosto_category,
+			'tiresias_category' => $tiresias_category,
 		));
 
 		return $this->display(__FILE__, 'views/templates/hook/category-footer_category-tagging.tpl');
@@ -1277,11 +1277,11 @@ class TiresiasTagging extends Module
 	 */
 	protected function getBrandTagging($manufacturer)
 	{
-		$nosto_brand = new NostoTaggingBrand();
-		$nosto_brand->loadData($manufacturer);
+		$tiresias_brand = new TiresiasTaggingBrand();
+		$tiresias_brand->loadData($manufacturer);
 
 		$this->smarty->assign(array(
-			'nosto_brand' => $nosto_brand,
+			'tiresias_brand' => $tiresias_brand,
 		));
 
 		return $this->display(__FILE__, 'views/templates/hook/manufacturer-footer_brand-tagging.tpl');
@@ -1295,11 +1295,11 @@ class TiresiasTagging extends Module
 	 */
 	protected function getSearchTagging($search_term)
 	{
-		$nosto_search = new NostoTaggingSearch();
-		$nosto_search->setSearchTerm($search_term);
+		$tiresias_search = new TiresiasTaggingSearch();
+		$tiresias_search->setSearchTerm($search_term);
 
 		$this->smarty->assign(array(
-			'nosto_search' => $nosto_search,
+			'tiresias_search' => $tiresias_search,
 		));
 
 		return $this->display(__FILE__, 'views/templates/hook/top_search-tagging.tpl');

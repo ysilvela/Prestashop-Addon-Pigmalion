@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,18 +18,18 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 /**
- * Base controller for all Nosto API front controllers.
+ * Base controller for all Tiresias API front controllers.
  *
- * @property NostoTagging $module
+ * @property TiresiasTagging $module
  * @property Context $context
  */
-abstract class NostoTaggingApiModuleFrontController extends ModuleFrontController
+abstract class TiresiasTaggingApiModuleFrontController extends ModuleFrontController
 {
 	/**
 	 * @var int the amount of items to fetch.
@@ -57,17 +57,17 @@ abstract class NostoTaggingApiModuleFrontController extends ModuleFrontControlle
 
 	/**
 	 * Encrypts and outputs the data and ends the application flow.
-	 * Only send the response if we can encrypt it, i.e. we have an shared encryption secret with nosto.
+	 * Only send the response if we can encrypt it, i.e. we have an shared encryption secret with tiresias.
 	 *
-	 * @param NostoExportCollectionInterface $collection the data collection to output as encrypted response.
+	 * @param TiresiasExportCollectionInterface $collection the data collection to output as encrypted response.
 	 */
-	public function encryptOutput(NostoExportCollectionInterface $collection)
+	public function encryptOutput(TiresiasExportCollectionInterface $collection)
 	{
-		/** @var NostoAccount $account */
-		$account = Nosto::helper('nosto_tagging/account')->find($this->module->getContext()->language->id);
-		if ($account && $account->isConnectedToNosto())
+		/** @var TiresiasAccount $account */
+		$account = Tiresias::helper('tiresias_tagging/account')->find($this->module->getContext()->language->id);
+		if ($account && $account->isConnectedToTiresias())
 		{
-			$cipher_text = NostoExporter::export($account, $collection);
+			$cipher_text = TiresiasExporter::export($account, $collection);
 			echo $cipher_text;
 		}
 		// It is important to stop the script execution after the export,

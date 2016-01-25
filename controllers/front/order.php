@@ -1,6 +1,6 @@
 <?php
 /**
- * 2013-2015 Nosto Solutions Ltd
+ * 2013-2015 BeTechnology Solutions Ltd
  *
  * NOTICE OF LICENSE
  *
@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to contact@nosto.com so we can send you a copy immediately.
+ * to contact@tiresias.com so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,39 +18,39 @@
  * versions in the future. If you wish to customize PrestaShop for your
  * needs please refer to http://www.prestashop.com for more information.
  *
- * @author    Nosto Solutions Ltd <contact@nosto.com>
- * @copyright 2013-2015 Nosto Solutions Ltd
+ * @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+ * @copyright 2013-2015 BeTechnology Solutions Ltd
  * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
 require_once(dirname(__FILE__).'/api.php');
 
 /**
- * Front controller for gathering all existing orders from the shop and sending the meta-data to Nosto.
+ * Front controller for gathering all existing orders from the shop and sending the meta-data to Tiresias.
  *
- * This controller should only be invoked once, when the Nosto module has been installed.
+ * This controller should only be invoked once, when the Tiresias module has been installed.
  */
-class NostoTaggingOrderModuleFrontController extends NostoTaggingApiModuleFrontController
+class TiresiasTaggingOrderModuleFrontController extends TiresiasTaggingApiModuleFrontController
 {
 	/**
 	 * @inheritdoc
 	 */
 	public function initContent()
 	{
-		$collection = new NostoExportOrderCollection();
+		$collection = new TiresiasExportOrderCollection();
 		foreach ($this->getOrderIds() as $id_order)
 		{
 			$order = new Order($id_order);
 			if (!Validate::isLoadedObject($order))
 				continue;
 
-			$nosto_order = new NostoTaggingOrder();
-			$nosto_order->include_special_items = false;
-			$nosto_order->loadData($this->module->getContext(), $order);
+			$tiresias_order = new TiresiasTaggingOrder();
+			$tiresias_order->include_special_items = false;
+			$tiresias_order->loadData($this->module->getContext(), $order);
 
-			$validator = new NostoValidator($nosto_order);
+			$validator = new TiresiasValidator($tiresias_order);
 			if ($validator->validate())
-				$collection[] = $nosto_order;
+				$collection[] = $tiresias_order;
 
 			$order = null;
 		}

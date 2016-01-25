@@ -1,5 +1,5 @@
 {*
-* 2013-2015 Nosto Solutions Ltd
+* 2013-2015 BeTechnology Solutions Ltd
 *
 * NOTICE OF LICENSE
 *
@@ -9,7 +9,7 @@
 * http://opensource.org/licenses/afl-3.0.php
 * If you did not receive a copy of the license and are unable to
 * obtain it through the world-wide-web, please send an email
-* to contact@nosto.com so we can send you a copy immediately.
+* to contact@tiresias.com so we can send you a copy immediately.
 *
 * DISCLAIMER
 *
@@ -17,24 +17,24 @@
 * versions in the future. If you wish to customize PrestaShop for your
 * needs please refer to http://www.prestashop.com for more information.
 *
-* @author    Nosto Solutions Ltd <contact@nosto.com>
-* @copyright 2013-2015 Nosto Solutions Ltd
+* @author    BeTechnology Solutions Ltd <contact@tiresias.com>
+* @copyright 2013-2015 BeTechnology Solutions Ltd
 * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *}
 
-{if isset($nosto_order) && is_object($nosto_order)}
-	<div class="nosto_purchase_order" style="display:none">
-		<span class="order_number">{$nosto_order->getOrderNumber()|escape:'htmlall':'UTF-8'}</span>
-		<span class="order_status_code">{$nosto_order->getOrderStatus()->getCode()|escape:'htmlall':'UTF-8'}</span>
-		<span class="order_status_label">{$nosto_order->getOrderStatus()->getLabel()|escape:'htmlall':'UTF-8'}</span>
-		<span class="payment_provider">{$nosto_order->getPaymentProvider()|escape:'htmlall':'UTF-8'}</span>
+{if isset($tiresias_order) && is_object($tiresias_order)}
+	<div class="tiresias_purchase_order" style="display:none">
+		<span class="order_number">{$tiresias_order->getOrderNumber()|escape:'htmlall':'UTF-8'}</span>
+		<span class="order_status_code">{$tiresias_order->getOrderStatus()->getCode()|escape:'htmlall':'UTF-8'}</span>
+		<span class="order_status_label">{$tiresias_order->getOrderStatus()->getLabel()|escape:'htmlall':'UTF-8'}</span>
+		<span class="payment_provider">{$tiresias_order->getPaymentProvider()|escape:'htmlall':'UTF-8'}</span>
 		<div class="buyer">
-			<span class="first_name">{$nosto_order->getBuyerInfo()->getFirstName()|escape:'htmlall':'UTF-8'}</span>
-			<span class="last_name">{$nosto_order->getBuyerInfo()->getLastName()|escape:'htmlall':'UTF-8'}</span>
-			<span class="email">{$nosto_order->getBuyerInfo()->getEmail()|escape:'htmlall':'UTF-8'}</span>
+			<span class="first_name">{$tiresias_order->getBuyerInfo()->getFirstName()|escape:'htmlall':'UTF-8'}</span>
+			<span class="last_name">{$tiresias_order->getBuyerInfo()->getLastName()|escape:'htmlall':'UTF-8'}</span>
+			<span class="email">{$tiresias_order->getBuyerInfo()->getEmail()|escape:'htmlall':'UTF-8'}</span>
 		</div>
 		<div class="purchased_items">
-			{foreach from=$nosto_order->getPurchasedItems() item=item}
+			{foreach from=$tiresias_order->getPurchasedItems() item=item}
 				<div class="line_item">
 					<span class="product_id">{$item->getProductId()|escape:'htmlall':'UTF-8'}</span>
 					<span class="quantity">{$item->getQuantity()|escape:'htmlall':'UTF-8'}</span>
