@@ -1,0 +1,548 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"getSu",
+				"getSummary"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "de.php",
+			"settings":
+			{
+				"buffer_size": 5341,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"add",
+				"Git: Add Remote"
+			],
+			[
+				"git add",
+				"Git: Add Remote"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"git remote",
+				"Git: Remote"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git remote ",
+				"Git: Remote"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"git: sta",
+				"Git: Status"
+			],
+			[
+				"git",
+				"Git: Commit history"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: git",
+				"Package Control: Upgrade/Overwrite All Packages"
+			]
+		],
+		"width": 408.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias"
+	],
+	"file_history":
+	[
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/admin-tab.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/ctrl.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/tiresiastagging.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/account.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/config.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/customer.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/flash-message.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/logger.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/product-operation.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/updater.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/url.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/meta/account-billing.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/meta/account-iframe.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/meta/account-owner.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/meta/account.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/meta/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/meta/oauth.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/base.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/brand.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/cart.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/category.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/customer.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/order-buyer.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/order-purchased-item.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/order-status.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/order.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/product.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/models/search.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/admin/AdminTiresiasController.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/admin/AdminTiresiasPersonalizationController.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/admin/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/api.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/module.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/oauth2.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/order.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/product.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/css/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/fonts/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/js/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/js/tiresiastagging-admin-config.js",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/js/tiresiastagging-auto-slots.js",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/libs/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/libs/tiresias/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-1.1.0.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-1.2.0.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-1.3.0.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-2.1.0.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-2.2.0.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-2.4.0.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/admin/config-bootstrap.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/admin/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-footer_category-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-footer_hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-footer_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-top_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer-product_hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer-product_product-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer-product_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/header_add-to-cart.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/header_embed-script.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/header_meta-tags.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/home_hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/home_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/index.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/left-column_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/manufacturer-footer_brand-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/order-confirmation_order-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/right-column_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-footer_hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-footer_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-top_hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-top_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/shopping-cart-footer_hidden-tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/shopping-cart-footer_tiresias-elements.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_cart-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_customer-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_search-tagging.tpl",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/header0.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/css/style.css",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/controllers/header.controller.js",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/headers/header_11.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/headers/header_17.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/headers/header_10.view.html",
+		"/C/Users/yago.silvela/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/version-4-5-2015-ingles.json",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/index.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/directives/angular-touch.min.js",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/app.js",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/header1.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/heads/header_10.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/footer.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/controllers/content.controller.js",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/controllers/footer.controller.js",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/content.view.html",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/directives/angular-carousel.min.js",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/css/angular-carousel.min.css",
+		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/header2.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/index.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/login.controller.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/common_app/login.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/package.json",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/googleMap.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/services/payments.service.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/payments.controller.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/payments/payments.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/common/navigation.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/config.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/dashboard.controller.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/services/cms.service.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/alerts.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/package.json",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/app_views/profile.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/common/header.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/api/models/Cms.js",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/dashboard.view.html",
+		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/navigation.controller.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"contact@betechnology.es",
+			"@tiresias.com",
+			"navbar-colo",
+			"navbar-inner",
+			"navbar-color",
+			"navbar-inner",
+			"navbar",
+			"navbar-color",
+			".navbar-white",
+			"navbar-white",
+			"CmsData.title",
+			"product1",
+			"title",
+			"boss",
+			"<ul",
+			"/ul",
+			"),",
+			"NumberInt(",
+			"NumberLong(",
+			"goog",
+			"location.path",
+			"header.html",
+			"edit",
+			"social",
+			"header.html",
+			"html",
+			"common.lock",
+			"analytics.html",
+			"navigation",
+			"Page",
+			"location",
+			"User",
+			"insertJ",
+			"))",
+			"insertJ",
+			"findAll",
+			"getPositions",
+			"insertJ",
+			"getPo",
+			"getCandidates",
+			"user.save",
+			"'TPT",
+			"TPT",
+			"getPos",
+			"insertJ",
+			"getPo",
+			"insertJo",
+			"updatec",
+			"insertJob",
+			"register",
+			"JSON.",
+			"uuid",
+			"updateAccountById",
+			"getCandidates",
+			"canc",
+			"find",
+			"TPTalent.es",
+			"assignSocialNetworks",
+			"aF",
+			"createserver",
+			"angular.element",
+			"angular",
+			"jquery",
+			"$cookies",
+			"theme.demos.signup",
+			"simpleTiles",
+			"profilePage_Controller",
+			"profile",
+			"ng-app",
+			"\">\n",
+			"dashBoard_Controller",
+			"ccc2iban_tables_registered_windows_Controller",
+			"DashboardController",
+			"theme.demos.dashboard",
+			"theme.demos.dashboad",
+			"plugins",
+			"appFunctions",
+			"tile-simple",
+			"tile-simple data",
+			"sales",
+			"profits",
+			"orders",
+			"ccc2iban_tables_registered_windows_Controller",
+			"lockScreenController",
+			"siddarta.app.controllers",
+			"ccc2iban_tables_registered_windows_Controller",
+			"theme.demos.ng_grid",
+			"siddarta.core.services",
+			"siddarta.app.services",
+			"siddarta.core.services",
+			"jsps",
+			"signout",
+			"SignupPageController",
+			"signup",
+			"totalServerItems",
+			"YSG",
+			"fullscree",
+			"ng-Grid",
+			"grid",
+			"notifica",
+			"http",
+			"location",
+			"isLoggedIn",
+			"profile",
+			"logIn",
+			"progressLoader",
+			"hidde",
+			"sendChangeLogs",
+			"marcarPromotedPr",
+			"tickPromotedPr",
+			"marcarPromotedPr",
+			"generator",
+			"span",
+			"new",
+			"-->\n",
+			"fluid",
+			"CFLAGS=",
+			"images/widget",
+			"png",
+			".uneditable-input",
+			"input, textarea, .uneditable-input",
+			".base-select-container:focus"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"info@betechnology.es",
+			"@betechnology.es",
+			",",
+			"",
+			"media"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "de.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 98.0
+	},
+	"output.git-init":
+	{
+		"height": 42.0
+	},
+	"output.git-push":
+	{
+		"height": 98.0
+	},
+	"output.git-remote":
+	{
+		"height": 98.0
+	},
+	"output.sftp":
+	{
+		"height": 98.0
+	},
+	"pinned_build_system": "",
+	"project": "Prestashop-Addon-Tiresias.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 284.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
