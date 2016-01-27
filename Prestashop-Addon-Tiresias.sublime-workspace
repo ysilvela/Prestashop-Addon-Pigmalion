@@ -12,11 +12,29 @@
 	"buffers":
 	[
 		{
-			"file": "de.php",
+			"file": "es.php",
 			"settings":
 			{
-				"buffer_size": 5341,
+				"buffer_size": 4948,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config.xml",
+			"settings":
+			{
+				"buffer_size": 591,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 195 files for \"my.tiresias.com\" (case sensitive)\n\nC:\\Users\\yago.silvela\\Documents\\My Git Proyects\\tiresiastagging\\css\\tiresiastagging-admin-config.css:\n  184  \n  185  .tw-bs .right-block {\n  186:     background: #364156 url(\"https://my.tiresias.com/public/platform/img/install-bg.png\") no-repeat top left;\n  187      background-size: cover;\n  188      color: #fff;\n\nC:\\Users\\yago.silvela\\Documents\\My Git Proyects\\tiresiastagging\\libs\\tiresias\\php-sdk\\src\\classes\\http\\TiresiasHttpRequest.php:\n   48       * @var string base url for the tiresias web hook requests.\n   49       */\n   50:     public static $baseUrl = 'https://my.tiresias.com';\n   51  \n   52      /**\n\nC:\\Users\\yago.silvela\\Documents\\My Git Proyects\\tiresiastagging\\libs\\tiresias\\php-sdk\\src\\classes\\oauth\\TiresiasOAuthClient.php:\n   46       * @var string the tiresias oauth endpoint base url.\n   47       */\n   48:     public static $baseUrl = 'https://my.tiresias.com/oauth';\n   49  \n   50      /**\n\nC:\\Users\\yago.silvela\\Documents\\My Git Proyects\\tiresiastagging\\views\\templates\\admin\\config-bootstrap.tpl:\n   78                                                  <div class=\"panel-body\">\n   79                                                      <div class=\"login-block\">\n   80:                                                         <img src=\"https://my.tiresias.com/public/images/tiresias/logoslogan.svg\" class=\"img-logo\">\n   81                                                          <h2 class=\"h4 content-header\">{l s='Unlock Your 14-Day Free Trial' mod='tiresiastagging'}</h2>\n   82                                                          <p class=\"content-subheader\">{$translations.tiresiastagging_not_installed_subheading|escape:'htmlall':'UTF-8'}</p>\n   ..\n  123                                                              <h6>{l s='Facebook Ads' mod='tiresiastagging'}</h6>\n  124                                                              <!-- extras.platforms.install.facebookAds -->\n  125:                                                             <img src=\"https://my.tiresias.com/public/platform/img/install-feature-facebook.jpg\" alt=\"\" class=\"img-responsive\">\n  126                                                          </div>\n  127                                                          <div class=\"col-sxs-12 col-sm-6\">\n  128                                                              <h6>{l s='Product Recommendations' mod='tiresiastagging'}</h6>\n  129                                                              <!-- extras.platforms.install.productRecommendations -->\n  130:                                                             <img src=\"https://my.tiresias.com/public/platform/img/install-feature-recommendations.jpg\" alt=\"\" class=\"img-responsive\">\n  131                                                          </div>\n  132                                                      </div>\n  ...\n  135                                                              <h6>{l s='Behavioural Pop-ups' mod='tiresiastagging'}</h6>\n  136                                                              <!-- extras.platforms.install.behaviouralPopups -->\n  137:                                                             <img src=\"https://my.tiresias.com/public/platform/img/install-feature-popups.jpg\" alt=\"\" class=\"img-responsive\">\n  138                                                          </div>\n  139                                                          <div class=\"col-sxs-12 col-sm-6\">\n  140                                                              <h6>{l s='Triggered Emails' mod='tiresiastagging'}</h6>\n  141                                                              <!-- extras.platforms.install.triggeredEmails -->\n  142:                                                             <img src=\"https://my.tiresias.com/public/platform/img/install-feature-recommendations.jpg\" class=\"img-responsive\">\n  143                                                          </div>\n  144                                                      </div>\n\n8 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 4089,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
@@ -115,10 +133,98 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias"
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces"
 	],
 	"file_history":
 	[
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/IframeAuthTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/composer.json",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/package.json",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/README.md",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/Tiresias.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasProductReCrawl.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/api/TiresiasApiRequest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/export/TiresiasExporter.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/http/TiresiasHttpRequest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/oauth/TiresiasOAuthClient.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/account/TiresiasAccountInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/account/TiresiasAccountMetaDataIframeInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/js/TiresiasIframe.min.js",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/js/src/TiresiasIframe.js",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/api-blueprint.md",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasAccountMetaDataIframe.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasOAuthClientMetaData.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/AccountCreateTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/AccountSyncTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/ProductReCrawlTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/TiresiasValidatableInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/account/TiresiasAccountMetaDataBillingDetailsInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/account/TiresiasAccountMetaDataInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/account/TiresiasAccountMetaDataOwnerInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/order/TiresiasOrderBuyerInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/order/TiresiasOrderInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/order/TiresiasOrderPurchasedItemInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/order/TiresiasOrderStatusInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/libs/phpseclib/crypt/TiresiasCryptAES.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/libs/phpseclib/crypt/TiresiasCryptBase.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/libs/phpseclib/crypt/TiresiasCryptRandom.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/libs/phpseclib/crypt/TiresiasCryptRijndael.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_bootstrap.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasAccountMetaData.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasAccountMetaDataBilling.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasAccountMetaDataOwner.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasOrder.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasOrderBuyer.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasOrderPurchasedItem.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasOrderStatus.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/_support/TiresiasProduct.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/AccountDeleteTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/AccountTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/DotEnvTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/ExportCollectionTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/HistoryExportTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/HttpRequestTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/OauthTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/OrderConfirmationTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/tests/unit/ProductOperationTest.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/Gruntfile.js",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/config.inc.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasAccount.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasCipher.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasDotEnv.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasMessage.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasObject.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasOrderConfirmation.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/TiresiasValidator.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/api/TiresiasApiToken.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/collection/TiresiasCollection.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/collection/TiresiasOrderCollection.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/collection/TiresiasProductCollection.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/exception/TiresiasException.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/exception/TiresiasHttpException.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/export/TiresiasExportOrderCollection.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/export/TiresiasExportProductCollection.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/helper/TiresiasHelper.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/helper/TiresiasHelperDate.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/helper/TiresiasHelperIframe.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/helper/TiresiasHelperPrice.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/http/TiresiasHttpRequestAdapter.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/http/TiresiasHttpRequestAdapterCurl.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/http/TiresiasHttpRequestAdapterSocket.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/http/TiresiasHttpResponse.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/oauth/TiresiasOAuthToken.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/classes/operation/TiresiasOperationProduct.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/TiresiasExportCollectionInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/TiresiasOAuthClientMetaDataInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/src/interfaces/TiresiasProductInterface.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/tiresiastagging.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/classes/meta/account.php",
+		"/C/Users/yago.silvela/Documents/My Git Proyects/tiresiastagging/libs/tiresias/php-sdk/LICENSE.txt",
 		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/classes/helpers/admin-tab.php",
 		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_tiresias-elements.tpl",
 		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/ctrl.php",
@@ -163,94 +269,11 @@
 		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/order.php",
 		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/controllers/front/product.php",
 		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/css/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/fonts/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/js/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/js/tiresiastagging-admin-config.js",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/js/tiresiastagging-auto-slots.js",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/libs/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/libs/tiresias/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-1.1.0.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-1.2.0.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-1.3.0.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-2.1.0.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-2.2.0.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/upgrade/upgrade-2.4.0.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/admin/config-bootstrap.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/admin/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-footer_category-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-footer_hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-footer_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/category-top_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer-product_hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer-product_product-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer-product_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/footer_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/header_add-to-cart.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/header_embed-script.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/header_meta-tags.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/home_hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/home_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/index.php",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/left-column_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/manufacturer-footer_brand-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/order-confirmation_order-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/right-column_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-footer_hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-footer_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-top_hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/search-top_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/shopping-cart-footer_hidden-tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/shopping-cart-footer_tiresias-elements.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_cart-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_customer-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/views/templates/hook/top_search-tagging.tpl",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/header0.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/css/style.css",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/controllers/header.controller.js",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/headers/header_11.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/headers/header_17.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/headers/header_10.view.html",
-		"/C/Users/yago.silvela/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/version-4-5-2015-ingles.json",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/index.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/directives/angular-touch.min.js",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/app.js",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/header1.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/heads/header_10.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/footer.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/controllers/content.controller.js",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/controllers/footer.controller.js",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/content.view.html",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/js/directives/angular-carousel.min.js",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/css/angular-carousel.min.css",
-		"/C/Users/yago.silvela/Documents/eligebtc.com/betech/bocetos/audiovisualesag-f/views/header2.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/index.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/login.controller.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/common_app/login.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/package.json",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/googleMap.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/services/payments.service.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/payments.controller.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/payments/payments.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/common/navigation.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/config.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/dashboard.controller.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/services/cms.service.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/alerts.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/package.json",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/app_views/profile.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/common/header.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/api/models/Cms.js",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/views/dashboard.view.html",
-		"/C/Users/yago.silvela/Documents/Mis OpenShift Proyects/dashboard-betechnology/dashboard.git/public/dashboard/app/scripts/controllers/navigation.controller.js"
+		"/C/Users/yago.silvela/Documents/My Git Proyects/Prestashop-Addon-Tiresias/fonts/index.php"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -265,6 +288,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"my.tiresias.com",
+			"nosto",
+			"Nosto",
+			"contact@nosto.com",
+			"Nosto Solutions",
+			"TiresiasAccountMetaDataInterface",
 			"contact@betechnology.es",
 			"@tiresias.com",
 			"navbar-colo",
@@ -394,6 +423,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"tiresias",
+			"Tiresias",
+			"info@betechnology.es",
+			"BeTechnology Solutions",
 			"info@betechnology.es",
 			"@betechnology.es",
 			",",
@@ -409,16 +442,44 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "de.php",
+					"file": "es.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								177,
+								177
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "config.xml",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 5341,
+						"buffer_size": 591,
 						"regions":
 						{
 						},
@@ -431,7 +492,81 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4089,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										243,
+										258
+									],
+									[
+										635,
+										650
+									],
+									[
+										930,
+										945
+									],
+									[
+										1332,
+										1347
+									],
+									[
+										2064,
+										2079
+									],
+									[
+										2667,
+										2682
+									],
+									[
+										3243,
+										3258
+									],
+									[
+										3830,
+										3845
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

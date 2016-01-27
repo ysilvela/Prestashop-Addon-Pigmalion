@@ -105,7 +105,7 @@ class TiresiasTagging extends Module
 	{
 		$this->name = 'tiresiastagging';
 		$this->tab = 'advertising_marketing';
-		$this->version = '2.4.3';
+		$this->version = '0.0.1';
 		$this->author = 'BeTechnology';
 		$this->need_instance = 1;
 		$this->bootstrap = true;

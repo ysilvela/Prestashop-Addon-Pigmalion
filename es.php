@@ -2,7 +2,7 @@
 
 global $_MODULE;
 $_MODULE = array();
-$_MODULE['<{tiresiastagging}prestashop>tiresiastagging_4d7be0837e3660ec51a01652f028436b'] = 'Personalización para PrestaShop';
+$_MODULE['<{tiresiastagging}prestashop>tiresiastagging_4d7be0837e3660ec51a01652f028436b'] = 'Recomendacion personalizada de productos para PrestaShop';
 $_MODULE['<{tiresiastagging}prestashop>tiresiastagging_2c71425adb350bace3a06ea8ff420eee'] = 'Aumenta la tasa de conversión y el valor medio de compra ofreciendo a tus clientes recomendaciones personalizadas de productos durante todo el proceso de compra.';
 $_MODULE['<{tiresiastagging}prestashop>tiresiastagging_415e1f8adb980e44d0e0336e544bd9e1'] = 'No se ha configurado una cuenta Tiresias para cada tienda online e idioma';
 $_MODULE['<{tiresiastagging}prestashop>tiresiastagging_0b69722d7a4da2541d7a4ddad2a8bca5'] = 'La casilla Idioma no puede estar vacía';
