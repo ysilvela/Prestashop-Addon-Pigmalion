@@ -75,6 +75,10 @@ class TiresiasAccount extends TiresiasObject implements TiresiasAccountInterface
      */
     public static function create(TiresiasAccountMetaDataInterface $meta)
     {
+        //file_put_contents ( 'YSG_debug_file', 'Procedemos a crear una cuenta');
+        PrestaShopLogger::addLog('Procedemos a crear una cuenta', 1);
+        //PrestaShopLogger::addLog(debug_print_backtrace(), 1);
+        //debug_print_backtrace();
         $params = array(
             'title' => $meta->getTitle(),
             'name' => $meta->getName(),
@@ -103,6 +107,8 @@ class TiresiasAccount extends TiresiasObject implements TiresiasAccountInterface
         $request->setContentType('application/json');
         $request->setAuthBasic('', $meta->getSignUpApiToken());
         $response = $request->post(json_encode($params));
+
+        PrestaShopLogger::addLog('TiresiasAccount.create. respuesta a create -> ' .$response, 1);
 
         if ($response->getCode() !== 200) {
             Tiresias::throwHttpException('Tiresias account could not be created.', $request, $response);
@@ -156,6 +162,7 @@ class TiresiasAccount extends TiresiasObject implements TiresiasAccountInterface
      */
     public function delete()
     {
+        PrestaShopLogger::addLog('TiresiasAccount.delete. Entramos en la funcion delete. ', 1);
         $token = $this->getApiToken('sso');
         if ($token === null) {
             throw new TiresiasException('Failed to notify Tiresias about deleted account, no "sso" token');
@@ -196,6 +203,7 @@ class TiresiasAccount extends TiresiasObject implements TiresiasAccountInterface
      */
     public function isConnectedToTiresias()
     {
+        PrestaShopLogger::addLog('TiresiasAccount.isConnectedToTiresias. Vemos si estamos conectados. Revisamos tokens ' , 1);
         if (empty($this->tokens)) {
             return false;
         }
@@ -235,24 +243,47 @@ class TiresiasAccount extends TiresiasObject implements TiresiasAccountInterface
         return null;
     }
 
+    public function debug_string_backtrace() { 
+        ob_start(); 
+        debug_print_backtrace(); 
+        $trace = ob_get_contents(); 
+        ob_end_clean(); 
+
+        // Remove first item from backtrace as it's this function which 
+        // is redundant. 
+        $trace = preg_replace ('/^#0\s+' . __FUNCTION__ . "[^\n]*\n/", '', $trace, 1); 
+
+        // Renumber backtrace items. 
+        $trace = preg_replace ('/^#(\d+)/me', '\'#\' . ($1 - 1)', $trace); 
+
+        return $trace; 
+    } 
+
     /**
      * @inheritdoc
      */
     public function getIframeUrl(TiresiasAccountMetaDataIframeInterface $meta, array $params = array())
-    {
-        return Tiresias::helper('iframe')->getUrl($meta, $this, $params);
+    {        
+        $url = Tiresias::helper('iframe')->getUrl($meta, $this, $params);
+        PrestaShopLogger::addLog('TiresiasAccount.getIframeUrl. Url a invocar -> ' .$url, 1);
+        $back = $this->debug_string_backtrace();
+        PrestaShopLogger::addLog('TiresiasAccount.getIframeUrl. Stack -> ' .$back, 1);
+        return $url;
     }
 
     /**
      * @inheritdoc
      */
-    public function ssoLogin(TiresiasAccountMetaDataIframeInterface $meta)
-    {
+    public function ssoLogin(TiresiasAccountMetaDataIframeInterface $meta){
+    
+        PrestaShopLogger::addLog('TiresiasAccount.ssoLogin. Lanzamos login', 1);
         $token = $this->getApiToken('sso');
         if ($token === null) {
+            PrestaShopLogger::addLog('TiresiasAccount.ssoLogin. Devolvemos false', 1);
             return false;
         }
 
+        PrestaShopLogger::addLog('TiresiasAccount.ssoLogin. Vamos a lanzar una peticion de oath', 1);
         $request = new TiresiasHttpRequest();
         $request->setUrl(TiresiasHttpRequest::$baseUrl.TiresiasHttpRequest::PATH_SSO_AUTH);
         $request->setReplaceParams(
@@ -274,10 +305,14 @@ class TiresiasAccount extends TiresiasObject implements TiresiasAccountInterface
         $result = $response->getJsonResult();
 
         if ($response->getCode() !== 200) {
+            PrestaShopLogger::addLog('TiresiasAccount.ssoLogin. Lanzamos excepcion por fallo en token', 1);
             Tiresias::throwHttpException('Unable to login employee to Tiresias with SSO token.', $request, $response);
         }
         if (empty($result->login_url)) {
+            PrestaShopLogger::addLog('TiresiasAccount.ssoLogin. Devolvemos excepcion por no haber url', 1);
             throw new TiresiasException('No "login_url" returned when logging in employee to Tiresias');
+        }else{
+            PrestaShopLogger::addLog('TiresiasAccount.ssoLogin. La url devuelta es' .$result->login_url, 1);
         }
 
         return $result->login_url;

@@ -28,11 +28,11 @@
  */
 class TiresiasTaggingHelperConfig
 {
-	const ACCOUNT_NAME = 'NOSTOTAGGING_ACCOUNT_NAME';
-	const ADMIN_URL = 'NOSTOTAGGING_ADMIN_URL';
-	const INSTALLED_VERSION = 'NOSTOTAGGING_INSTALLED_VERSION';
+	const ACCOUNT_NAME = 'TIRESIASTAGGING_ACCOUNT_NAME';
+	const ADMIN_URL = 'TIRESIASTAGGING_ADMIN_URL';
+	const INSTALLED_VERSION = 'TIRESIASTAGGING_INSTALLED_VERSION';
 
-	const TOKEN_CONFIG_PREFIX = 'NOSTOTAGGING_API_TOKEN_';
+	const TOKEN_CONFIG_PREFIX = 'TIRESIASTAGGING_API_TOKEN_';
 
 	/**
 	 * Reads and returns a config entry value.
@@ -85,7 +85,7 @@ class TiresiasTaggingHelperConfig
 	}
 
 	/**
-	 * Removes all "NOSTOTAGGING_" config entries.
+	 * Removes all "TIRESIASTAGGING_" config entries.
 	 *
 	 * @return bool always true.
 	 */
@@ -98,11 +98,11 @@ class TiresiasTaggingHelperConfig
 			DELETE `'.$config_lang_table.'` FROM `'.$config_lang_table.'`
 			LEFT JOIN `'.$config_table.'`
 			ON `'.$config_lang_table.'`.`id_configuration` = `'.$config_table.'`.`id_configuration`
-			WHERE `'.$config_table.'`.`name` LIKE "NOSTOTAGGING_%"'
+			WHERE `'.$config_table.'`.`name` LIKE "TIRESIASTAGGING_%"'
 		);
 		Db::getInstance()->execute('
 			DELETE FROM `'.$config_table.'`
-			WHERE `'.$config_table.'`.`name` LIKE "NOSTOTAGGING_%"'
+			WHERE `'.$config_table.'`.`name` LIKE "TIRESIASTAGGING_%"'
 		);
 
 		// Reload the config.
@@ -112,7 +112,7 @@ class TiresiasTaggingHelperConfig
 	}
 
 	/**
-	 * Removes all "NOSTOTAGGING_" config entries for the current context and given language.
+	 * Removes all "TIRESIASTAGGING_" config entries for the current context and given language.
 	 *
 	 * @param int|null $id_lang the ID of the language object to remove the config entries for.
 	 * @param null|int $id_shop_group the ID of the shop context.
@@ -146,7 +146,7 @@ class TiresiasTaggingHelperConfig
 				DELETE `'.$config_lang_table.'` FROM `'.$config_lang_table.'`
 				INNER JOIN `'.$config_table.'`
 				ON `'.$config_lang_table.'`.`id_configuration` = `'.$config_table.'`.`id_configuration`
-				WHERE `'.$config_table.'`.`name` LIKE "NOSTOTAGGING_%"
+				WHERE `'.$config_table.'`.`name` LIKE "TIRESIASTAGGING_%"
 				AND `id_lang` = '.(int)$id_lang
 				.$context_restriction
 			);
@@ -156,7 +156,7 @@ class TiresiasTaggingHelperConfig
 		Db::getInstance()->execute('
 			UPDATE `'.$config_table.'`
 			SET `value` = NULL
-			WHERE `name` LIKE "NOSTOTAGGING_%"'
+			WHERE `name` LIKE "TIRESIASTAGGING_%"'
 			.$context_restriction
 		);*/
 

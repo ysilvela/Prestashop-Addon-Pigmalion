@@ -45,7 +45,7 @@ class TiresiasOAuthClient
     /**
      * @var string the tiresias oauth endpoint base url.
      */
-    public static $baseUrl = 'https://my.tiresias.com/oauth';
+    public static $baseUrl = 'https://tiresias-betechnology.rhcloud.com/api/oauth';
 
     /**
      * @var string the client id the identify this application to the oauth2 server.

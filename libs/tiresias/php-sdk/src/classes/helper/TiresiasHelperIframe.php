@@ -38,8 +38,8 @@
  */
 class TiresiasHelperIframe extends TiresiasHelper
 {
-    const IFRAME_URI_INSTALL = '/hub/{platform}/install';
-    const IFRAME_URI_UNINSTALL = '/hub/{platform}/uninstall';
+    const IFRAME_URI_INSTALL = '/api/hub/{platform}/install';
+    const IFRAME_URI_UNINSTALL = '/api/hub/{platform}/uninstall';
 
     /**
      * Returns the url for the account administration iframe.
@@ -56,6 +56,7 @@ class TiresiasHelperIframe extends TiresiasHelper
         TiresiasAccount $account = null,
         array $params = array()
     ) {
+        PrestaShopLogger::addLog('TiresiasHelperIframe.getUrl. Recuperamos la url de instalacion o desistalacion ' , 1);
         $queryParams = http_build_query(
             array_merge(
                 array(
@@ -86,6 +87,7 @@ class TiresiasHelperIframe extends TiresiasHelper
                 // allow to remove Tiresias and start over.
                 // The only case when this should happen is when the api token for some
                 // reason is invalid, which is the case when switching between environments.
+                PrestaShopLogger::addLog('TiresiasHelperIframe.getUrl. Ha fallado ssoLogin. Lanzamos la desistalacion ' , 1);
                 $url = TiresiasHttpRequest::buildUri(
                     $this->getBaseUrl().self::IFRAME_URI_UNINSTALL.'?'.$queryParams,
                     array(
@@ -94,6 +96,7 @@ class TiresiasHelperIframe extends TiresiasHelper
                 );
             }
         } else {
+            PrestaShopLogger::addLog('TiresiasHelperIframe.getUrl. La cuenta no esta conectada. Lanzamos la desistalacion ' , 1);
             $url = TiresiasHttpRequest::buildUri(
                 $this->getBaseUrl().self::IFRAME_URI_INSTALL.'?'.$queryParams,
                 array(
@@ -112,6 +115,6 @@ class TiresiasHelperIframe extends TiresiasHelper
      */
     protected function getBaseUrl()
     {
-        return Tiresias::getEnvVariable('NOSTO_WEB_HOOK_BASE_URL', TiresiasHttpRequest::$baseUrl);
+        return Tiresias::getEnvVariable('TIRESIAS_WEB_HOOK_BASE_URL', TiresiasHttpRequest::$baseUrl);
     }
 }

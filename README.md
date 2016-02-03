@@ -105,6 +105,19 @@ Academic Free License ("AFL") v. 3.0
 
 PrestaShop version 1.4.x - 1.6.x
 
+
+## ¿Como se inicia la instalacion?
+
+Todos los hooks se instalan en el metodo constructor de la clase tiresiastagging.php. Cada hook esta asociado con un fichero tpl 
+Activacion del addon. La clase que contiene el boton de Instalar es config-bootstrap.tpl 
+
+## ¿Como se inicia una consulta de recomendaciones?
+
+Todo empieza en la clase header_embed-script.tpl que invoca a la url de la API que devolverá el script JavaScript que invocará a su vez a la función de invocaciones de eventos "ev1".
+
+header_embed-script.tpl -> (API) include -> (function) invoke ev1 -> (API) ev1
+
+
 ## Changelog
 
 * 2.4.3

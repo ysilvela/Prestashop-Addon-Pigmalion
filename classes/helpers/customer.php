@@ -48,8 +48,9 @@ class TiresiasTaggingHelperCustomer
 	 * @return bool
 	 */
 	public function createTable()
-	{
+	{		
 		$table = self::getTableName();
+		PrestaShopLogger::addLog('customer.createTable. Se crea la tabla con nombre ' .$table, 1);
 		$sql = 'CREATE TABLE IF NOT EXISTS `'.$table.'` (
 			`id_cart` INT(10) UNSIGNED NOT NULL,
 			`id_tiresias_customer` VARCHAR(255) NOT NULL,
@@ -78,6 +79,7 @@ class TiresiasTaggingHelperCustomer
 	 */
 	public function updateTiresiasId()
 	{
+		PrestaShopLogger::addLog('customer.createTable. Actualizamos el campo TiresiasId ', 1);
 		$context = Context::getContext();
 		if (empty($context->cart->id))
 			return false;

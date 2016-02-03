@@ -143,6 +143,7 @@ class TiresiasTagging extends Module
 	 */
 	public function install()
 	{
+		PrestaShopLogger::addLog('tiresiastagging.install. Entramos en la funcion install ', 1);
 		if (parent::install()
 			&& Tiresias::helper('tiresias_tagging/customer')->createTable()
 			&& Tiresias::helper('tiresias_tagging/admin_tab')->install()
@@ -198,6 +199,7 @@ class TiresiasTagging extends Module
 	 */
 	public function uninstall()
 	{
+		PrestaShopLogger::addLog('tiresiastagging.unistall. Entramos en la funcion uninstall. ', 1);
 		return parent::uninstall()
 			&& Tiresias::helper('tiresias_tagging/account')->deleteAll()
 			&& Tiresias::helper('tiresias_tagging/config')->purge()
@@ -213,6 +215,7 @@ class TiresiasTagging extends Module
 	 */
 	public function getContent()
 	{
+		PrestaShopLogger::addLog('tiresiastagging.getContent. Entramos en la funcion getContent ', 1);
 		// Always update the url to the module admin page when we access it.
 		// This can then later be used by the oauth2 controller to redirect the user back.
 		$admin_url = $this->getAdminUrl();
@@ -258,6 +261,7 @@ class TiresiasTagging extends Module
 				$meta->setModulePath($this->_path);
 				$meta->loadData($this->context, $language_id);
 				$client = new TiresiasOAuthClient($meta);
+				PrestaShopLogger::addLog('tiresiastagging.GetContent. Se redirecciona a ' .$client->getAuthorizationUrl() , 1);
 				Tools::redirect($client->getAuthorizationUrl(), '');
 				die();
 			}
@@ -268,6 +272,7 @@ class TiresiasTagging extends Module
 			}
 
 			// Refresh the page after every POST to get rid of form re-submission errors.
+			PrestaShopLogger::addLog('tiresiastagging.GetContent. Una vez creada la cuenta se redirecciona a ' .$admin_url , 1);
 			Tools::redirect(TiresiasHttpRequest::replaceQueryParamInUrl('language_id', $language_id, $admin_url), '');
 			die;
 		}
@@ -325,8 +330,8 @@ class TiresiasTagging extends Module
 			$this->name.'_ps_version_class' => 'ps-'.str_replace('.', '', Tools::substr(_PS_VERSION_, 0, 3))
 		));
 
-		// Try to login employee to Tiresias in order to get a url to the internal setting pages,
-		// which are then shown in an iframe on the module config page.
+		// Intentamos el login sobre Tiresias para obtener la url a las paginas internas,
+		// que seran mostradas en el iframe del modulo de la configuracion de paginas.
 		if ($account && $account->isConnectedToTiresias())
 		{
 			try
@@ -335,7 +340,9 @@ class TiresiasTagging extends Module
 				$meta->setUniqueId($this->getUniqueInstallationId());
 				$meta->setVersionModule($this->version);
 				$meta->loadData($this->context, $language_id);
+				PrestaShopLogger::addLog('tiresiastagging.GetContent. Hemos entrado con la conexion con Tiresias. Tratamos de recuperar la URL llamando a getIframeUrl' , 1);
 				$url = $account->getIframeUrl($meta);
+				PrestaShopLogger::addLog('tiresiastagging.GetContent. Hemos entrado con la conexion con Tiresias. La URL recuperada es ' .$url , 1);
 				if (!empty($url))
 					$this->context->smarty->assign(array('iframe_url' => $url));
 			}
@@ -356,6 +363,8 @@ class TiresiasTagging extends Module
 		$scripts .= '<script type="text/javascript" src="'.$this->_path.'js/tiresiastagging-admin-config.js"></script>';
 		$output .= $this->display(__FILE__, 'views/templates/admin/config-bootstrap.tpl');
 
+		PrestaShopLogger::addLog('tiresiastagging.GetContent.Devolvemos un script JS ' , 1);
+
 		return $stylesheets.$scripts.$output;
 	}
 
@@ -368,6 +377,7 @@ class TiresiasTagging extends Module
 	 */
 	protected function createAccount($id_lang, $email)
 	{
+		PrestaShopLogger::addLog('tiresiastagging.createAccount. Entramos en la funcion getAccount ', 1);
 		try
 		{
 			$meta = new TiresiasTaggingMetaAccount();

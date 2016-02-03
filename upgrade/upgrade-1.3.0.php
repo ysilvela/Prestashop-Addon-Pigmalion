@@ -46,11 +46,11 @@ function upgrade_module_1_3_0($object)
 			DELETE `'.$config_lang_table.'` FROM `'.$config_lang_table.'`
 			LEFT JOIN `'.$config_table.'`
 			ON `'.$config_lang_table.'`.`id_configuration` = `'.$config_table.'`.`id_configuration`
-			WHERE `'.$config_table.'`.`name` LIKE "NOSTOTAGGING_%"'
+			WHERE `'.$config_table.'`.`name` LIKE "TIRESIASTAGGING_%"'
 	);
 	Db::getInstance()->execute('
 			DELETE FROM `'.$config_table.'`
-			WHERE `'.$config_table.'`.`name` LIKE "NOSTOTAGGING_%"'
+			WHERE `'.$config_table.'`.`name` LIKE "TIRESIASTAGGING_%"'
 	);
 	Configuration::loadConfiguration();
 

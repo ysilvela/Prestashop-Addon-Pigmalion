@@ -94,6 +94,7 @@ class TiresiasTaggingHelperAdminTab
 	 */
 	public function uninstall()
 	{
+		PrestaShopLogger::addLog('admin-tab.uninstall. Entramos en la funcion uninstall. ', 1);
 		if (_PS_VERSION_ < '1.5')
 			return true;
 

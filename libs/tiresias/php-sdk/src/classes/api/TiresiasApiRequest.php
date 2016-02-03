@@ -50,7 +50,7 @@ class TiresiasApiRequest extends TiresiasHttpRequest
     /**
      * @var string base url for the tiresias api.
      */
-    public static $baseUrl = 'https://api.tiresias.com';
+    public static $baseUrl = 'https://tiresias-betechnology.rhcloud.com/api';
 
     /**
      * Setter for the end point path, e.g. one of the PATH_ constants.
@@ -60,6 +60,7 @@ class TiresiasApiRequest extends TiresiasHttpRequest
      */
     public function setPath($path)
     {
+        PrestaShopLogger::addLog('TiresiasApiRequest.setPath. Establecemos la url a -> ' .$path, 1);
         $this->setUrl(self::$baseUrl.$path);
     }
 }

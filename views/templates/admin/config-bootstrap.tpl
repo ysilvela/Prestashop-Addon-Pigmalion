@@ -77,7 +77,7 @@
                                             <div class="panel panel-default panel-install">
                                                 <div class="panel-body">
                                                     <div class="login-block">
-                                                        <img src="https://my.tiresias.com/public/images/tiresias/logoslogan.svg" class="img-logo">
+                                                        <img src="https://tiresias-betechnology.rhcloud.com/img/logo.png" class="img-logo">
                                                         <h2 class="h4 content-header">{l s='Unlock Your 14-Day Free Trial' mod='tiresiastagging'}</h2>
                                                         <p class="content-subheader">{$translations.tiresiastagging_not_installed_subheading|escape:'htmlall':'UTF-8'}</p>
                                                         <div class="panes">
@@ -122,24 +122,24 @@
                                                         <div class="col-sxs-12 col-sm-6">
                                                             <h6>{l s='Facebook Ads' mod='tiresiastagging'}</h6>
                                                             <!-- extras.platforms.install.facebookAds -->
-                                                            <img src="https://my.tiresias.com/public/platform/img/install-feature-facebook.jpg" alt="" class="img-responsive">
+                                                            <img src="https://tiresias-betechnology.rhcloud.com/img/install-feature-facebook.jpg" alt="" class="img-responsive">
                                                         </div>
                                                         <div class="col-sxs-12 col-sm-6">
                                                             <h6>{l s='Product Recommendations' mod='tiresiastagging'}</h6>
                                                             <!-- extras.platforms.install.productRecommendations -->
-                                                            <img src="https://my.tiresias.com/public/platform/img/install-feature-recommendations.jpg" alt="" class="img-responsive">
+                                                            <img src="https://tiresias-betechnology.rhcloud.com/img/install-feature-recommendations.jpg" alt="" class="img-responsive">
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-sxs-12 col-sm-6">
                                                             <h6>{l s='Behavioural Pop-ups' mod='tiresiastagging'}</h6>
                                                             <!-- extras.platforms.install.behaviouralPopups -->
-                                                            <img src="https://my.tiresias.com/public/platform/img/install-feature-popups.jpg" alt="" class="img-responsive">
+                                                            <img src="https://tiresias-betechnology.rhcloud.com/img/install-feature-popups.jpg" alt="" class="img-responsive">
                                                         </div>
                                                         <div class="col-sxs-12 col-sm-6">
                                                             <h6>{l s='Triggered Emails' mod='tiresiastagging'}</h6>
                                                             <!-- extras.platforms.install.triggeredEmails -->
-                                                            <img src="https://my.tiresias.com/public/platform/img/install-feature-recommendations.jpg" class="img-responsive">
+                                                            <img src="https://tiresias-betechnology.rhcloud.com/img/install-feature-recommendations.jpg" class="img-responsive">
                                                         </div>
                                                     </div>
                                                 </div>

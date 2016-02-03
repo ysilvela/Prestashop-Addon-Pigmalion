@@ -32,7 +32,7 @@ if (!defined('_PS_VERSION_'))
  * Creates 'tiresiastagging_customer_link' db table.
  * Registers hooks 'actionPaymentConfirmation', 'displayPaymentTop' and 'displayHome'.
  * Sets default value for "inject category and search page recommendations" to 1.
- * Removes unused "NOSTOTAGGING_SERVER_ADDRESS" config variable.
+ * Removes unused "TIRESIASTAGGING_SERVER_ADDRESS" config variable.
  *
  * @param TiresiasTagging $object
  * @return bool
@@ -51,7 +51,7 @@ function upgrade_module_1_1_0($object)
 		&& $object->registerHook('actionPaymentConfirmation')
 		&& $object->registerHook('displayPaymentTop')
 		&& $object->registerHook('displayHome')
-		&& Configuration::updateGlobalValue('NOSTOTAGGING_INJECT_SLOTS', 1)
-		&& Configuration::deleteByName('NOSTOTAGGING_SERVER_ADDRESS')
-		&& Configuration::deleteByName('NOSTOTAGGING_TOP_SELLERS_CMS_ID');
+		&& Configuration::updateGlobalValue('TIRESIASTAGGING_INJECT_SLOTS', 1)
+		&& Configuration::deleteByName('TIRESIASTAGGING_SERVER_ADDRESS')
+		&& Configuration::deleteByName('TIRESIASTAGGING_TOP_SELLERS_CMS_ID');
 }

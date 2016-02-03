@@ -28,7 +28,7 @@
  */
 class TiresiasTaggingHelperUrl
 {
-	const DEFAULT_SERVER_ADDRESS = 'connect.tiresias.com';
+	const DEFAULT_SERVER_ADDRESS = 'tiresias-betechnology.rhcloud.com/api';
 	const OPTIMAL_PRODUCT_IMAGE_WIDTH = 450;
 
 	/**
@@ -187,7 +187,7 @@ EOT;
 	 */
 	public function getServerAddress()
 	{
-		return isset($_ENV['NOSTO_SERVER_URL']) ? $_ENV['NOSTO_SERVER_URL'] : self::DEFAULT_SERVER_ADDRESS;
+		return isset($_ENV['TIRESIAS_SERVER_URL']) ? $_ENV['TIRESIAS_SERVER_URL'] : self::DEFAULT_SERVER_ADDRESS;
 	}
 
 	/**

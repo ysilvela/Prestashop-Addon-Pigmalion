@@ -41,13 +41,13 @@ class TiresiasHttpRequest
     const AUTH_BASIC = 'basic';
     const AUTH_BEARER = 'bearer';
 
-    const PATH_ACCOUNT_DELETED = '/hub/uninstall';
-    const PATH_SSO_AUTH = '/hub/{platform}/load/{email}';
+    const PATH_ACCOUNT_DELETED = '/api/hub/uninstall';
+    const PATH_SSO_AUTH = '/api/hub/{platform}/load/{email}';
 
     /**
      * @var string base url for the tiresias web hook requests.
      */
-    public static $baseUrl = 'https://my.tiresias.com';
+    public static $baseUrl = 'https://tiresias-betechnology.rhcloud.com';
 
     /**
      * @var string the request url.

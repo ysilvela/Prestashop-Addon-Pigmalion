@@ -100,12 +100,12 @@ require_once(dirname(__FILE__).'/libs/phpseclib/crypt/TiresiasCryptRandom.php');
 
 // Parse .env if exists and assign configured environment variables.
 TiresiasDotEnv::getInstance()->init(dirname(__FILE__));
-if (isset($_ENV['NOSTO_API_BASE_URL'])) {
-    TiresiasApiRequest::$baseUrl = $_ENV['NOSTO_API_BASE_URL'];
+if (isset($_ENV['TIRESIAS_API_BASE_URL'])) {
+    TiresiasApiRequest::$baseUrl = $_ENV['TIRESIAS_API_BASE_URL'];
 }
-if (isset($_ENV['NOSTO_OAUTH_BASE_URL'])) {
-    TiresiasOAuthClient::$baseUrl = $_ENV['NOSTO_OAUTH_BASE_URL'];
+if (isset($_ENV['TIRESIAS_OAUTH_BASE_URL'])) {
+    TiresiasOAuthClient::$baseUrl = $_ENV['TIRESIAS_OAUTH_BASE_URL'];
 }
-if (isset($_ENV['NOSTO_WEB_HOOK_BASE_URL'])) {
-    TiresiasHttpRequest::$baseUrl = $_ENV['NOSTO_WEB_HOOK_BASE_URL'];
+if (isset($_ENV['TIRESIAS_WEB_HOOK_BASE_URL'])) {
+    TiresiasHttpRequest::$baseUrl = $_ENV['TIRESIAS_WEB_HOOK_BASE_URL'];
 }
