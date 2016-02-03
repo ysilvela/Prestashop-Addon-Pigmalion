@@ -117,6 +117,10 @@ Todo empieza en la clase header_embed-script.tpl que invoca a la url de la API q
 
 header_embed-script.tpl -> (API) include -> (function) invoke ev1 -> (API) ev1
 
+## Modo preview
+
+Para poder previsualizar las recomendaciones en modo debug, el controlador recibe el parametro tiresiasdebug=true y id_lang=1 e invoca a la API de include donde se lanzan dos javascripts. Uno de Jquery y otro con la toolbar. Esta se llama debugtoolbar.min.js y tiene toda la logica de mostrar el debug.
+Hay que fijarse que tambien se muestra informacion de carga en la consola javascript de absolutamente todo.
 
 ## Changelog
 
