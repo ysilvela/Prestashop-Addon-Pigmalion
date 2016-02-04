@@ -111,11 +111,48 @@ PrestaShop version 1.4.x - 1.6.x
 Todos los hooks se instalan en el metodo constructor de la clase tiresiastagging.php. Cada hook esta asociado con un fichero tpl 
 Activacion del addon. La clase que contiene el boton de Instalar es config-bootstrap.tpl 
 
+## ¿Como se emiten los eventos?
+
+Campos:
+c -> Id del cliente este logado o no
+m-> Id del market o tieda. Se gener uno nuevo en cada instalacion
+data -> ev: array 
+        el: array con los posibles huecos
+        cats: array
+        oc: (true, false) -> false en el frontpage
+        cids: codigo del producto del carrito
+        cs -> Cart selection -> Nº de elementos del carrito
+        ct -> Cart total -> Total del precio de los items
+cb -> Funcion callback a la que hay que llamar de vuelta
+
+
 ## ¿Como se inicia una consulta de recomendaciones?
 
 Todo empieza en la clase header_embed-script.tpl que invoca a la url de la API que devolverá el script JavaScript que invocará a su vez a la función de invocaciones de eventos "ev1".
 
 header_embed-script.tpl -> (API) include -> (function) invoke ev1 -> (API) ev1
+
+## ¿Como se muestran las recomendaciones?
+
+Campos:
+cs -> Cart selection -> Nº de elementos del carrito
+ct -> Cart total -> Total del precio de los items
+customer -> Id del cliente este logado o no
+errors -> array de si ha habido errores
+he -> (false, true) ->
+hiic -> (false, true) ->
+pv -> Nº de recomendaciones realizadas
+
+Campos Push:
+pv -> Tiene el numero total de recomendaciones emitidas.
+el -> elements -> Elementos de la pagina mostrada donde se pueden poner recomendaciones
+
+En la pagina principal se muestran recomendaciones con el nombre de 'frontpage-nosto-1'
+En la pagina de categorias se muestran recomendaciones con el nombre de 'nosto-page-category1'
+En la pagina de producto se muestran recomendaciones con el nombre de 'nosto-page-product1'
+En la pagina del carrito se muestran recomendaciones con el nombre de 'nosto-page-cart1'
+En la pagina de busqueda se muestran recomendaciones con el nombre de 'nosto-page-search1'
+
 
 ## Modo preview
 
