@@ -113,10 +113,10 @@ Activacion del addon. La clase que contiene el boton de Instalar es config-boots
 
 ## ¿Como se emiten los eventos?
 
-Campos:
-c -> Id del cliente este logado o no
-m-> Id del market o tieda. Se gener uno nuevo en cada instalacion
-data -> ev: array:
+Campos:  
+1. c -> Id del cliente este logado o no
+2. m-> Id del market o tieda. Se gener uno nuevo en cada instalacion
+3. data -> ev: array:
 
 * el: array con los posibles huecos.
 * cats: array de las categorias de los elementos mostrados.
@@ -125,7 +125,7 @@ data -> ev: array:
 * cs -> Cart selection -> Nº de elementos del carrito.
 * ct -> Cart total -> Total del precio de los items.
 
-cb -> Funcion callback a la que hay que llamar de vuelta
+4. cb -> Funcion callback a la que hay que llamar de vuelta
 
 
 ## ¿Como se inicia una consulta de recomendaciones?
@@ -136,18 +136,18 @@ header_embed-script.tpl -> (API) include -> (function) invoke ev1 -> (API) ev1
 
 ## ¿Como se muestran las recomendaciones?
 
-Campos:
-cs -> Cart selection -> Nº de elementos del carrito
-ct -> Cart total -> Total del precio de los items
-customer -> Id del cliente este logado o no
-errors -> array de si ha habido errores
-he -> (false, true) ->
-hiic -> (false, true) ->
-pv -> Nº de recomendaciones realizadas
+Campos:  
+* cs -> Cart selection -> Nº de elementos del carrito
+* ct -> Cart total -> Total del precio de los items
+* customer -> Id del cliente este logado o no
+* errors -> array de si ha habido errores
+* he -> (false, true) ->
+* hiic -> (false, true) ->
+* pv -> Nº de recomendaciones realizadas
 
-Campos Push:
-pv -> Tiene el numero total de recomendaciones emitidas.
-el -> elements -> Elementos de la pagina mostrada donde se pueden poner recomendaciones
+Campos Push:  
+* pv -> Tiene el numero total de recomendaciones emitidas.
+* el -> elements -> Elementos de la pagina mostrada donde se pueden poner recomendaciones
 
 En la pagina principal se muestran recomendaciones con el nombre de 'frontpage-nosto-1'
 En la pagina de categorias se muestran recomendaciones con el nombre de 'nosto-page-category1'
