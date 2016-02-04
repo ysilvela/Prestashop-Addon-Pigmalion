@@ -116,13 +116,15 @@ Activacion del addon. La clase que contiene el boton de Instalar es config-boots
 Campos:
 c -> Id del cliente este logado o no
 m-> Id del market o tieda. Se gener uno nuevo en cada instalacion
-data -> ev: array 
-        * el: array con los posibles huecos,
-        * cats: array de las categorias de los elementos mostrados,
-        * oc: (true, false) -> false en el frontpage y en la pagina de nosto-page-category.
-        * cids: codigo del producto del carrito.
-        * cs -> Cart selection -> Nº de elementos del carrito.
-        * ct -> Cart total -> Total del precio de los items.
+data -> ev: array:
+
+* el: array con los posibles huecos.
+* cats: array de las categorias de los elementos mostrados.
+* oc: (true, false) -> false en el frontpage y en la pagina de nosto-page-category.
+* cids: codigo del producto del carrito.
+* cs -> Cart selection -> Nº de elementos del carrito.
+* ct -> Cart total -> Total del precio de los items.
+
 cb -> Funcion callback a la que hay que llamar de vuelta
 
 
