@@ -111,13 +111,15 @@ PrestaShop version 1.4.x - 1.6.x
 Todos los hooks se instalan en el metodo constructor de la clase tiresiastagging.php. Cada hook esta asociado con un fichero tpl 
 Activacion del addon. La clase que contiene el boton de Instalar es config-bootstrap.tpl 
 
-## ¿Como se emiten los eventos?
+## Evento de visita de pagina para mostrar recomendaciones
 
 Campos:  
 1. c -> Id del cliente este logado o no  
-2. m-> Id del market o tieda. Se gener uno nuevo en cada instalacion  
-3. data -> ev: array:  
+2. m-> Id del market o tieda. Se gener uno nuevo en cada instalacion
+3. cb -> Funcion callback a la que hay que llamar de vuelta  
+4. data ->   
 
+* ev: array. Cuando se ve un producto aparece algo como [["vp","2"]]
 * el: array con los posibles huecos.
 * cats: array de las categorias de los elementos mostrados.
 * oc: (true, false) -> false en el frontpage y en la pagina de nosto-page-category.
@@ -125,7 +127,7 @@ Campos:
 * cs -> Cart selection -> Nº de elementos del carrito.
 * ct -> Cart total -> Total del precio de los items.
 
-4. cb -> Funcion callback a la que hay que llamar de vuelta  
+  
 
 
 ## ¿Como se inicia una consulta de recomendaciones?
@@ -145,7 +147,35 @@ Campos:
 * hiic -> (false, true) ->
 * pv -> Nº de recomendaciones realizadas
 
-Campos Push:  
+## Push. Eventos de Carrito y de visualizacion de productos:
+Todo viene en el mismo JSON:  
+
+coupon_used: false  
+on_order_confirmation: false  
+cart:        
+
+* 0:
+  * name: "Faded Short Sleeve T-shirts (Orange, S)"
+  * price_currency_code: "EUR"
+  * product_id: "1"
+  * quantity: 1
+  * unit_price: 15.24
+
+products:    
+* availability: "InStock"
+* category: ["/Home/Women", "/Home/Women/Dresses", "/Home/Women/Dresses/Casual Dresses"]
+* date_published: "2014-03-19"
+* description: "<p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which has since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>"
+* image_url: "http://tiresias.esy.es/img/p/8/8-large_default.jpg"
+* list_price: 24.01
+* name: "Printed Dress"
+* price: 24.01
+* price_currency_code: "EUR"
+* price_text: "24.01"
+* product_id: "3"
+* url: "http://tiresias.esy.es/index.
+
+## Respuestas a push:
 * pv -> Tiene el numero total de recomendaciones emitidas.
 * el -> elements -> Elementos de la pagina mostrada donde se pueden poner recomendaciones
 
