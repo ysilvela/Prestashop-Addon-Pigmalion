@@ -114,9 +114,9 @@ Activacion del addon. La clase que contiene el boton de Instalar es config-boots
 ## ¿Como se emiten los eventos?
 
 Campos:  
-1. c -> Id del cliente este logado o no
-2. m-> Id del market o tieda. Se gener uno nuevo en cada instalacion
-3. data -> ev: array:
+1. c -> Id del cliente este logado o no  
+2. m-> Id del market o tieda. Se gener uno nuevo en cada instalacion  
+3. data -> ev: array:  
 
 * el: array con los posibles huecos.
 * cats: array de las categorias de los elementos mostrados.
@@ -125,7 +125,7 @@ Campos:
 * cs -> Cart selection -> Nº de elementos del carrito.
 * ct -> Cart total -> Total del precio de los items.
 
-4. cb -> Funcion callback a la que hay que llamar de vuelta
+4. cb -> Funcion callback a la que hay que llamar de vuelta  
 
 
 ## ¿Como se inicia una consulta de recomendaciones?
